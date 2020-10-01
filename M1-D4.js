@@ -46,16 +46,20 @@ Write a function "boundary" which accept an integer N and returns true if N is w
 */
 
 console.log("\nExercise 4");
-//let boundary = (N) => (20 < N <= 100 || N === 400 ? true : false);
+//let boundary = (N) => ((20 < N <= 100) || N === 400 ? true : false);
 let boundary = (N) => ((20 < N && N <= 100) || N === 400 ? true : false);
 N = 20;
 console.log(boundary(N));
 
 /* EXERCISE 5
-Write a function "strivify" which accepts a string S. Add to S "Strive" in front of a given string, if the given string begins with "Strive" then return the original string.
+Write a function "strivify" which accepts a string S. Add to S "Strive" in front of a given string,
+ if the given string begins with "Strive" then return the original string.
 */
 
-/* WRITE YOUR CODE HERE */
+console.log("\nExercise 5");
+let strivify = (S) => (S.slice(0, 6) !== "Strive" ? `Strive ${S}` : S);
+S = "Please";
+console.log(strivify(S));
 
 /* EXERCISE 6
 Write a function "check3and7" which accepts a positive number and check if it is a multiple of 3 or a multiple of 7.
