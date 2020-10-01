@@ -103,12 +103,22 @@ Write a function "upperFirst" to capitalize the first letter of each word of a g
 */
 
 console.log("\nExercise 8");
+let upperFirst = (word) => {
+  let x = 0;
+  for (let i = 0; i < word.length; i++) {
+    if (!(word.charAt(i) >= "0" && word.charAt(i) <= "9")) {
+      return (
+        word.substring(0, x) + word.charAt(i).toUpperCase() + word.slice(i + 1)
+      );
+    } else x++;
+  }
+};
+let word = "!!asd";
+console.log(upperFirst(word));
 
 /* EXERCISE 9
 Write a function "cutString" to create a new string without the first and last character of a given string.
 */
-
-/* WRITE YOUR CODE HERE */
 
 /* EXERCISE 10
 Write a function "giveMeRandom" which accepts a number n and returns an array containing n random numbers between 0 and 10
