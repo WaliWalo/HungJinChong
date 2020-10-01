@@ -24,7 +24,7 @@ console.log(
 Write a function "crazySum" which receives two given integers. If the two values are same, then returns triple their sum.
 */
 console.log("\nExercise 2");
-let crazySum = (no1, no2) => (no1 === no2 ? (no1 + no2) * 3 : false);
+let crazySum = (no1, no2) => (no1 === no2 ? (no1 + no2) * 3 : no1 + no2);
 no1 = 2;
 no2 = 3;
 console.log(`Function crazySum returns ${crazySum(no1, no2)}`);
