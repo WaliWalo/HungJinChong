@@ -133,7 +133,16 @@ console.log(cutString(string));
 Write a function "giveMeRandom" which accepts a number n and returns an array containing n random numbers between 0 and 10
 */
 
-/* WRITE YOUR CODE HERE */
+console.log("\nExercise 10");
+let giveMeRandom = (n) => {
+  let array = [];
+  for (let i = 0; i < n; i++) {
+    array[i] = parseInt(Math.random() * 10);
+  }
+  return array;
+};
+let random = 10;
+console.log(`Here is ${random} random number: ${giveMeRandom(random)}`);
 
 /* WHEN YOU ARE FINISHED
 Commit and push the code to your personal GitHub repository and share the link to your commit with your tutor.
