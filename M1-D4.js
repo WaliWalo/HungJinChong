@@ -13,7 +13,7 @@ Write a function "area" which receives 2 parameters (l1,l2) and calculate the ar
 */
 
 console.log("\nExercise 1");
-let area = (l1, l2) => 2 * l1 + 2 * l2;
+let area = (l1, l2) => l1 * l2;
 let l1 = 2;
 let l2 = 3;
 console.log(
