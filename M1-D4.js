@@ -6,6 +6,8 @@ ASSIGNMENT RULES
 - You can google / use StackOverflow BUT we suggest you to use just the material provided
 */
 
+const { number } = require("prop-types");
+
 /* EXERCISE 1
 Write a function "area" which receives 2 parameters (l1,l2) and calculate the area of the rectangle.
 */
@@ -34,6 +36,10 @@ Returns triple their absolute difference if
 the specified
 number is greater than 19.
 */
+console.log("\nExercise 3");
+let crazyDiff = (x) => (x > 19 ? (x - 19) * 3 : 19 - x);
+x = 22;
+console.log(crazyDiff(x));
 
 /* EXERCISE 4
 Write a function "boundary" which accept an integer N and returns true if N is within 20 and 100 (included) or equal to 400.
