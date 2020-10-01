@@ -66,7 +66,21 @@ Write a function "check3and7" which accepts a positive number and check if it is
 HINT: Module Operator
 */
 
-/* WRITE YOUR CODE HERE */
+console.log("\nExercise 6");
+let check3and7 = (posN) => {
+  let posNumber = Math.abs(posN);
+  if (posNumber % 3 === 0 && posNumber % 7 === 0) {
+    return "multiple of 3 and 7";
+  } else if (posNumber % 7 === 0) {
+    return "multiple of 7";
+  } else if (posNumber % 3 === 0) {
+    return "multiple of 3";
+  } else {
+    return "Error 404";
+  }
+};
+posN = 3;
+console.log(check3and7(posN));
 
 /* EXERCISE 7
 Write a function "reverseString" to reverse programmatically a given string (es.: Strive => evirtS).
