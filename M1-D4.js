@@ -10,6 +10,14 @@ ASSIGNMENT RULES
 Write a function "area" which receives 2 parameters (l1,l2) and calculate the area of the rectangle.
 */
 
+console.log("\nExercise 1");
+let area = (l1, l2) => 2 * l1 + 2 * l2;
+let l1 = 2;
+let l2 = 3;
+console.log(
+  `Area of rectangle with sides ${l1}cm and ${l2}cm is ${area(l1, l2)}cm`
+);
+
 /* EXERCISE 2
 Write a function "crazySum" which receives two given integers. If the two values are same, then returns triple their sum.
 */
