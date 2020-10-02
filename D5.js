@@ -528,18 +528,21 @@ halfTree(3);
     *  
    *** 
   *****
+ 0 row, 3space 1star
+1 row, 2space 3star
+2 row, 1space 5star
+3 row, 0space 7star
+
 */
 console.log("\nEx 22");
-let halfTree = (num) => {
-  for (let j = 0; j <= num - 1; j++) {
-    let x = "";
-    for (let i = 0; i <= j; i++) {
-      x += "*";
-    }
-    console.log(x);
+let Tree = (h) => {
+  const char = "*";
+  const space = " ";
+  for (let x = 1; x <= h; x++) {
+    console.log(space.repeat(h - x) + char.repeat(x * 2 - 1));
   }
 };
-halfTree(3);
+Tree(5);
 
 /* Ex.23
   Create a function IsItPrime that receives a number and return true if the number is a prime number
