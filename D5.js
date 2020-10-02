@@ -14,30 +14,55 @@
 /* Ex.A
    Create a variable test that contains a string
 */
+console.log("\nEx.A");
+const test = "this is a string";
+console.log(test);
 
 /* Ex.B
     Create a variable sum that contains the result of the sum between 10 and 20 
 */
+console.log("\nEx.B");
+let sum = 10 + 20;
+console.log(`Sum of 10 + 20 is ${sum}`);
 
 /* Ex.C 
     Create a variable random that contains a random number between 0 and 20 (should be randomly created at each execution)
 */
+console.log("\nEx.C");
+let random = Math.floor(Math.random() * Math.floor(20));
+console.log(random);
 
 /* Ex.D
     Create a variable Me containing and object with the current information: Name = Your Name, Surname = Your Surname, Age = Your Age
 */
+console.log("\nEx.D");
+let me = {
+  name: "Hung Jin",
+  surname: "Chong",
+  age: 24,
+};
+console.log(me);
 
 /* Ex.E 
     Programmatically remove the Age from the previously create object Me
 */
+console.log("\nEx.E");
+delete me.age;
+console.log(me);
 
 /* Ex.F 
    Programmatically add to the object Me an array "skills" that contains the programming languages that you know
 */
+console.log("\nEx.F");
+me.skills = ["Javascript", "Java", "Python"];
+console.log(me.skills);
 
 /* Ex.G 
    Programmatically remove the last skill from the array "skills" inside of the "me" object
 */
+console.log("\nEx G");
+me.skills.pop();
+console.log(me.skills);
 
 // JS Functions
 /* Ex.1
