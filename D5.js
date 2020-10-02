@@ -423,24 +423,72 @@ let getMovieById = (id) => {
     return "match not found";
   }
 };
-console.log(getMovieById("aa"));
+console.log(getMovieById("tt1731697"));
 
 /* Ex.17
     Write the function SumYears that returns the sum of the years the movie has been produced
 */
 console.log("\nEx.17");
+let sumYears = (movies) => {
+  let year = movies.Year;
+  let thisYear = new Date().getFullYear();
+  let diff = thisYear - year;
+  return diff;
+};
+console.log(
+  `Its been ${sumYears(movies[2])} since ${movies[2].Title} has been made.`
+);
 
 /* Ex.18
     Write the function SearchMovie that receives a string and returns all the movies with that string in the title
 */
+console.log("\nEx.18");
+let searchMovie = (string) => {
+  let array = [];
+  low = string.toLowerCase();
+  for (let i in movies) {
+    lower = movies[i].Title.toLowerCase();
+    if (lower.includes(low)) {
+      array.push(movies[i]);
+    }
+  }
+  return array;
+};
+console.log(searchMovie("flies"));
 
 /* Ex.19
-    Write the function SearchAndDivide that receives a string and returns an object with an array "match" with all the movies that contains the title and another array "nonMatch" with the other movies
+    Write the function SearchAndDivide that receives a string and returns an object with an array "match" with all the movies that contains the title 
+    and another array "nonMatch" with the other movies
 */
+console.log("\nEx.19"); //********* */
+let searchAndDivide = (string) => {
+  let match = [];
+  let nonMatch = [];
+  match = searchMovie(string);
+  console.log(movies.length);
+  for (let i in match) {
+    for (let j in movies) {
+      if (match[i].imdbID === movies[j].imdbID) {
+        console.log(movies[j].Title);
+        movies.splice(i + 1, 1);
+      }
+    }
+  }
+  console.log(match);
+  console.log(movies);
+};
+searchAndDivide("flies");
 
 /* Ex.20
    Write the function DeleteX that receives a number and returns an array without the element in that position
 */
+console.log("\nExercise 20");
+let deleteX = (number) => {
+  let array2 = ["a0", "asdsad", "asdadsaddasd", "foood"];
+  array2.splice(number - 1, 1);
+  return array2;
+};
+console.log(deleteX(2));
 
 // JS Advanced
 
