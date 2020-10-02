@@ -39,6 +39,9 @@ number is greater than 19.
 console.log("\nExercise 3");
 let crazyDiff = (x) => (x > 19 ? (x - 19) * 3 : 19 - x);
 x = 22;
+if (x < 0) {
+  x = -x;
+}
 console.log(crazyDiff(x));
 
 /* EXERCISE 4
@@ -107,18 +110,32 @@ let upperFirst = (word) => {
   //counter for chars that are not letters
   let x = 0;
   //loop for the whole sentence/word
-  for (let i = 0; i < word.length; i++) {
-    //check if its a number
-    if (!(word.charAt(i) >= "0" && word.charAt(i) <= "9")) {
-      return (
-        //add the numbers then the uppercase letter + the rest
-        word.substring(0, x) + word.charAt(i).toUpperCase() + word.slice(i + 1)
-      );
-    } else x++;
+  let arrayOfWords = word.split(" ");
+  for (let j = 0; j < arrayOfWords.length; j++) {
+    for (let i = 0; i < arrayOfWords.length; i++) {
+      //check if its a number
+      if (
+        !(arrayOfWords[i].charAt(i) >= "0" && arrayOfWords[i].charAt(i) <= "9")
+      ) {
+        return (
+          //add the numbers then the uppercase letter + the rest
+          arrayOfWords[i].substring(0, x) +
+          arrayOfWords[i].charAt(i).toUpperCase() +
+          arrayOfWords[i].slice(i + 1)
+        );
+      } else x++;
+    }
   }
 };
 let word = "asd asd";
-console.log(upperFirst(word));
+console.log(upperFirst(word, x));
+
+//fix
+let isNumber = (char) => {
+  if (!(char >= "0" && char <= "9")) {
+    return true;
+  }
+};
 
 /* EXERCISE 9
 Write a function "cutString" to create a new string without the first and last character of a given string.
