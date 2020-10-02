@@ -529,6 +529,17 @@ halfTree(3);
    *** 
   *****
 */
+console.log("\nEx 22");
+let halfTree = (num) => {
+  for (let j = 0; j <= num - 1; j++) {
+    let x = "";
+    for (let i = 0; i <= j; i++) {
+      x += "*";
+    }
+    console.log(x);
+  }
+};
+halfTree(3);
 
 /* Ex.23
   Create a function IsItPrime that receives a number and return true if the number is a prime number
