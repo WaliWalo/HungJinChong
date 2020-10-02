@@ -498,6 +498,28 @@ console.log(deleteX(2));
   **
   ***
 */
+console.log("\nEx.21");
+/*
+first loop
+j=0, i=0, x=*
+second loop
+j=1, i=0, x=*
+j=1, i=1, x=**
+third loop
+j=2, i=0, x=*
+j=2, i=1, x=**
+j=2, i=2, x=***
+*/
+let halfTree = (num) => {
+  for (let j = 0; j <= num - 1; j++) {
+    let x = "";
+    for (let i = 0; i <= j; i++) {
+      x += "*";
+    }
+    console.log(x);
+  }
+};
+halfTree(3);
 
 /* Ex.22 
   Create a function Tree that receives the height and creates an "*" tree with that height
@@ -511,3 +533,14 @@ console.log(deleteX(2));
 /* Ex.23
   Create a function IsItPrime that receives a number and return true if the number is a prime number
 */
+console.log("\nEx.23");
+//prime number starts from 2
+let isItPrime = (number) => {
+  for (let i = 2; i < number; i++) {
+    if (number % i === 0) {
+      return false;
+    }
+  }
+  return number > 1;
+};
+console.log(isItPrime(4));
