@@ -9,6 +9,8 @@
     - Publish them into your own GitHub account before 17.00 (Berlin Time)
 */
 
+const { object } = require("prop-types");
+
 //JS Basics
 
 /* Ex.A
@@ -150,6 +152,35 @@ console.log(isThisAnEmail("abc@bc.com"));
    Write the function WhatDayIsIt that should return the day of the week
 */
 console.log("\nEx.7");
+//attempt for switch case
+let whatDayIsIt = (day) => {
+  day = new Date().getDay();
+  switch (day) {
+    case 0:
+      day = "Sunday";
+      break;
+    case 1:
+      day = "Monday";
+      break;
+    case 2:
+      day = "Tuesday";
+      break;
+    case 3:
+      day = "Wednesday";
+      break;
+    case 4:
+      day = "Thursday";
+      break;
+    case 5:
+      day = "Friday";
+      break;
+    case 6:
+      day = "Saturday";
+  }
+  return day;
+};
+console.log(whatDayIsIt());
+
 /* Ex.8
     Write the function RollTheDices that receives a numeric input and returns an object that contains both the sum of the value of the dices and the dices itself
     This function should use the Dice function defined in Ex1
@@ -158,14 +189,47 @@ console.log("\nEx.7");
         values: [ 3, 3, 4]
     }
 */
+console.log("\nEx.8");
+let diceValue = {
+  sum: 0,
+  values: [],
+};
+let rollTheDices = (number) => {
+  let sum = 0;
+  for (let i = 0; i < number; i++) {
+    let roll = dice();
+    diceValue.values.push(roll);
+    diceValue.sum = diceValue.sum + roll;
+  }
+  return diceValue;
+};
+console.log(rollTheDices(3));
 
 /* Ex.9
    Write the function HowManyDays that receives a Date and return the number of days that has passed since that day.
 */
+console.log("\nEx.9");
+let howManyDays = (date) => {
+  let present = new Date();
+  let since = new Date();
+  since = Math.abs(present - date);
+  //the substraction returns days in miliseconds, so divide it by multiplying the number of seconds, minute, day, and milisecond
+  days = Math.abs(since) / (60 * 60 * 24 * 1000);
+  return Math.floor(days);
+};
+let d = new Date("2020-10-30");
+console.log(howManyDays(d));
 
 /* Ex.10
    Write the function IsTodayMyBDay that returns true if it's your birthday, false otherwise
 */
+console.log("\nEx.10");
+let isTodayMyBday = (date) => {
+  let bday = new Date("1996-06-08");
+  return date.getDate() === 8 && date.getMonth() === 5;
+};
+let date = new Date("2020-06-08");
+console.log(isTodayMyBday(date));
 
 // JS Arrays // Objs
 // NOTE: movies array is defined at the end of the file
