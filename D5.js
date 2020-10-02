@@ -36,65 +36,120 @@ console.log(random);
     Create a variable Me containing and object with the current information: Name = Your Name, Surname = Your Surname, Age = Your Age
 */
 console.log("\nEx.D");
-let me = {
+let Me = {
   name: "Hung Jin",
   surname: "Chong",
   age: 24,
 };
-console.log(me);
+console.log(Me);
 
 /* Ex.E 
     Programmatically remove the Age from the previously create object Me
 */
 console.log("\nEx.E");
-delete me.age;
-console.log(me);
+delete Me.age;
+console.log(Me);
 
 /* Ex.F 
    Programmatically add to the object Me an array "skills" that contains the programming languages that you know
 */
 console.log("\nEx.F");
-me.skills = ["Javascript", "Java", "Python"];
-console.log(me.skills);
+Me.skills = ["Javascript", "Java", "Python"];
+console.log(Me.skills);
 
 /* Ex.G 
    Programmatically remove the last skill from the array "skills" inside of the "me" object
 */
 console.log("\nEx G");
-me.skills.pop();
-console.log(me.skills);
+Me.skills.pop();
+console.log(Me.skills);
 
 // JS Functions
 /* Ex.1
     Write the function Dice that randomize an integer number between 1 and 6
 */
+console.log("\nEx1");
+let dice = () => Math.floor(Math.random() * 6) + 1;
+console.log(dice());
 
 /* Ex.2 
     Write the function WhoIsBigger that receives 2 numbers and returns the bigger of the 2
 */
+console.log("\nEx.2");
+let whoIsBigger = (no1, no2) =>
+  no1 > no2 ? console.log(`no1 is bigger`) : console.log(`no2 is bigger`);
+whoIsBigger(1, 2);
 
 /* Ex.3
     Write the function SplitMe that receives a String and returns an array with every word in that string
     Ex. SplitMe("I love coding") => returns [ "I","Love","Coding"]
 */
+console.log("\nEx.3");
+let splitMe = (string) => string.split(" ");
+console.log(splitMe("This is food"));
 
 /* Ex.4
-    Write the function DeleteOne that receives a string and a boolean. If the boolean is true, should return the string without the first letter, otherwise should remove the last one
+    Write the function DeleteOne that receives a string and a boolean. If the boolean is true, should return the string without the first letter,
+    otherwise should remove the last one
 */
+console.log("\nEx.4");
+let deleteOne = (string, boolean) =>
+  boolean ? string.slice(1) : string.substring(0, string.length - 1);
+console.log(deleteOne("delete", false));
 
 /* Ex.5
    Write the function OnlyLetters that receives a string, removes all the numbers and returns it.
    Ex.: OnlyLetters("I love 123 whatever")  => returns "I love whatever"
 */
+console.log("\nEx.6");
+//function for checking if char is number
+let isNumber = (char) => char >= "0" && char <= "9";
+let onlyLetters = (string) => {
+  //loop each char and check if its a number
+  let complete = "";
+  for (let i = 0; i < string.length; i++) {
+    //if its not a number add the char
+    if (isNumber(string[i]) === false) {
+      complete = complete + string[i];
+    }
+  }
+  return complete;
+};
+console.log(onlyLetters("i love 123 123sjdf123kl"));
 
 /* Ex.6 
    Write the function IsThisAnEmail that receives a string and returns true if the string is a valid email.
 */
+console.log("\nEx. 6");
+//no space, no special chars, must contain @xxx.com
+//function to check space
+let hasSpace = (char) => char === " ";
+//function to check special chars except @ with regex
+let hasSpecial = (char) => char.match(/[^\w@\.]/);
+let isThisAnEmail = (string) => {
+  //loop through the string char by char
+  let aCount = 0;
+  for (let i = 0; i < string.length; i++) {
+    if (hasSpace(string.charAt(i))) {
+      return false;
+    } else if (hasSpecial(string.charAt(i)) !== null) {
+      return false;
+    } else if (string.charAt(i) === "@") {
+      aCount++; //checks if it has more than one @ symbol
+    }
+  }
+  if (string.slice(-4) === ".com" && aCount === 1) {
+    return true;
+  } else {
+    return false;
+  }
+};
+console.log(isThisAnEmail("abc@bc.com"));
 
 /* Ex.7
    Write the function WhatDayIsIt that should return the day of the week
 */
-
+console.log("\nEx.7");
 /* Ex.8
     Write the function RollTheDices that receives a numeric input and returns an object that contains both the sum of the value of the dices and the dices itself
     This function should use the Dice function defined in Ex1
