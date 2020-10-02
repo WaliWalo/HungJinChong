@@ -465,12 +465,10 @@ let searchAndDivide = (string) => {
   let match = [];
   let nonMatch = [];
   match = searchMovie(string);
-  console.log(movies.length);
   for (let i in match) {
     for (let j in movies) {
       if (match[i].imdbID === movies[j].imdbID) {
-        console.log(movies[j].Title);
-        movies.splice(i + 1, 1);
+        nonMatch = movies.splice(j, 1);
       }
     }
   }
