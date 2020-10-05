@@ -1,5 +1,5 @@
 <html>
-<!--
+  <!--
         You have been assigned to the creation of a Smartphone Shop Website.
         The shop is just a showcase of the products of the shop with some extra informations.
         No shopping cart / checkout features are required.
@@ -26,8 +26,124 @@
         Write a function to change the footer address with a fake one
     -->
 
-<head></head>
+  <head>
+    <style>
+      table,
+      th,
+      td {
+        border: solid 1px;
+      }
+    </style>
+  </head>
 
-<body></body>
+  <body>
+    <h1>Smartphone Shop</h1>
 
+    <script>
+      class product {
+        constructor(imgUrl, title, description, price) {
+          this.imgUrl = imgUrl;
+          this.title = title;
+          this.description = description;
+          this.price = price;
+        }
+      }
+      let products = [];
+      const oralB = new product(
+        "/Users/Jin/Desktop/Strive/Day4/Exercise/HungJinChong/image/oralB.jpg",
+        "Oral B",
+        "Oral-B Genuine Precision Clean Replacement White Toothbrush Heads, Refills for Electric Toothbrush, Deep and Precise Cleaning, Pack of 12",
+        50
+      );
+      products.push(oralB);
+      const oralC = new product(
+        "/Users/Jin/Desktop/Strive/Day4/Exercise/HungJinChong/image/oralB.jpg",
+        "Oral B",
+        "Oral-B Genuine Precision Clean Replacement White Toothbrush Heads, Refills for Electric Toothbrush, Deep and Precise Cleaning, Pack of 12",
+        50
+      );
+      products.push(oralC);
+      const oralD = new product(
+        "/Users/Jin/Desktop/Strive/Day4/Exercise/HungJinChong/image/oralB.jpg",
+        "Oral B",
+        "Oral-B Genuine Precision Clean Replacement White Toothbrush Heads, Refills for Electric Toothbrush, Deep and Precise Cleaning, Pack of 12",
+        50
+      );
+      products.push(oralD);
+      const oralE = new product(
+        "/Users/Jin/Desktop/Strive/Day4/Exercise/HungJinChong/image/oralB.jpg",
+        "Oral B",
+        "Oral-B Genuine Precision Clean Replacement White Toothbrush Heads, Refills for Electric Toothbrush, Deep and Precise Cleaning, Pack of 12",
+        50
+      );
+      products.push(oralE);
+      const oralF = new product(
+        "/Users/Jin/Desktop/Strive/Day4/Exercise/HungJinChong/image/oralB.jpg",
+        "Oral B",
+        "Oral-B Genuine Precision Clean Replacement White Toothbrush Heads, Refills for Electric Toothbrush, Deep and Precise Cleaning, Pack of 12",
+        50
+      );
+      products.push(oralF);
+      for (let i in products) {
+        if (document.querySelector("TABLE") === null) {
+          let x = document.createElement("TABLE");
+          x.setAttribute("id", "productTable");
+          document.body.appendChild(x);
+          let tr = document.createElement("TR");
+          document.querySelector("TABLE").appendChild(tr);
+
+          let text1 = document.createTextNode("Image");
+          let th1 = document.createElement("TH");
+          th1.appendChild(text1);
+          document.querySelector("TR").appendChild(th1);
+
+          let text2 = document.createTextNode("Title");
+          let th2 = document.createElement("TH");
+          th2.appendChild(text2);
+          document.querySelector("TR").appendChild(th2);
+
+          let text3 = document.createTextNode("Description");
+          let th3 = document.createElement("TH");
+          th3.appendChild(text3);
+          document.querySelector("TR").appendChild(th3);
+
+          let text4 = document.createTextNode("Price");
+          let th4 = document.createElement("TH");
+          th4.appendChild(text4);
+          document.querySelector("TR").appendChild(th4);
+        }
+
+        let tr = document.createElement("TR");
+        document.querySelector("TABLE").appendChild(tr);
+
+        let imgUrl = products[i].imgUrl;
+        let td1 = document.createElement("TD");
+        imgTag = document.createElement("IMG");
+        imgTag.setAttribute("id", i);
+        imgTag.setAttribute("src", imgUrl);
+        imgTag.width = 200;
+        imgTag.height = 200;
+        td1.appendChild(imgTag);
+        console.log(document.querySelectorAll("TR")[1]);
+        console.log(parseInt(i + 1));
+        document.querySelectorAll("TR")[parseInt(i) + 1].appendChild(td1);
+
+        let title = document.createTextNode(products[i].title);
+        let td2 = document.createElement("TD");
+        td2.appendChild(title);
+        document.querySelectorAll("TR")[parseInt(i) + 1].appendChild(td2);
+
+        let description = document.createTextNode(products[i].description);
+        let td3 = document.createElement("TD");
+        td3.appendChild(description);
+        document.querySelectorAll("TR")[parseInt(i) + 1].appendChild(td3);
+
+        let price = document.createTextNode(products[i].price);
+        let td4 = document.createElement("TD");
+        td4.appendChild(price);
+        document.querySelectorAll("TR")[parseInt(i) + 1].appendChild(td4);
+      }
+      console.log(products);
+    </script>
+  </body>
 </html>
