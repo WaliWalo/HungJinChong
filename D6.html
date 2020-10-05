@@ -33,6 +33,13 @@
       td {
         border: solid 1px;
       }
+      #map {
+        border: solid 1px;
+      }
+      h1,
+      h2 {
+        text-align: center;
+      }
     </style>
   </head>
 
@@ -124,8 +131,6 @@
         imgTag.width = 200;
         imgTag.height = 200;
         td1.appendChild(imgTag);
-        console.log(document.querySelectorAll("TR")[1]);
-        console.log(parseInt(i + 1));
         document.querySelectorAll("TR")[parseInt(i) + 1].appendChild(td1);
 
         let title = document.createTextNode(products[i].title);
@@ -143,7 +148,19 @@
         td4.appendChild(price);
         document.querySelectorAll("TR")[parseInt(i) + 1].appendChild(td4);
       }
-      console.log(products);
     </script>
+    <h2>Address</h2>
+    <div style="width: 100%" id="map">
+      <iframe
+        width="100%"
+        height="600"
+        frameborder="0"
+        scrolling="no"
+        marginheight="0"
+        marginwidth="0"
+        src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=1%20Grafton%20Street,%20Dublin,%20Ireland+(My%20Business%20Name)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
+      ></iframe
+      ><a href="https://www.maps.ie/route-planner.htm">Google Route Planner</a>
+    </div>
   </body>
 </html>
