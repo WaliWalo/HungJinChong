@@ -45,50 +45,59 @@
 
   <body>
     <h1>Smartphone Shop</h1>
+    <button onclick="heading()">Heading</button>
+    <input type="color" id="colourInput" />
+    <button onclick="background()">Color</button>
 
     <script>
       class product {
-        constructor(imgUrl, title, description, price) {
+        constructor(imgUrl, title, description, price, link) {
           this.imgUrl = imgUrl;
           this.title = title;
           this.description = description;
           this.price = price;
+          this.link = link;
         }
       }
       let products = [];
       const oralB = new product(
-        "/Users/Jin/Desktop/Strive/Day4/Exercise/HungJinChong/image/oralB.jpg",
-        "Oral B",
-        "Oral-B Genuine Precision Clean Replacement White Toothbrush Heads, Refills for Electric Toothbrush, Deep and Precise Cleaning, Pack of 12",
-        50
+        "/Users/Jin/Desktop/Strive/Day4/Exercise/HungJinChong/image/reno4.jpg",
+        "Reno 4",
+        "OPPO Reno4 Pro - 12GB + 256GB Snapdragon 765G 6.55 inch 4000mAh 48MP Camera Sim Free Android 10 Smartphone- Black",
+        1250,
+        "https://www.amazon.co.uk/OPPO-Reno4-Pro-Snapdragon-Smartphone-Black/dp/B08HZ7PXPT/ref=sr_1_2_sspa?dchild=1&keywords=smartphones&qid=1601912557&sr=8-2-spons&psc=1&spLa=ZW5jcnlwdGVkUXVhbGlmaWVyPUExSjhYRFdHNlBNT1VPJmVuY3J5cHRlZElkPUEwOTQ3MjkyMkFWNllSN0owWEY5QSZlbmNyeXB0ZWRBZElkPUEwNjQyNjcwMlQ0Q0VTWTRTTzVXMCZ3aWRnZXROYW1lPXNwX2F0ZiZhY3Rpb249Y2xpY2tSZWRpcmVjdCZkb05vdExvZ0NsaWNrPXRydWU="
       );
       products.push(oralB);
       const oralC = new product(
-        "/Users/Jin/Desktop/Strive/Day4/Exercise/HungJinChong/image/oralB.jpg",
-        "Oral B",
-        "Oral-B Genuine Precision Clean Replacement White Toothbrush Heads, Refills for Electric Toothbrush, Deep and Precise Cleaning, Pack of 12",
-        50
+        "/Users/Jin/Desktop/Strive/Day4/Exercise/HungJinChong/image/rugged.jpg",
+        "Rugged Smart Phone",
+        "Rugged Smartphones SIM Free Unlocked, 4GB RAM 64GB ROM Octa-core, 13MP Dual Waterproof Camera, Shockproof IP68 IP69K Tough Phone, 5000mAh Battery, NFC, Ulefone Armor X5 Pro, UK Version, Orange",
+        350,
+        "https://www.amazon.co.uk/Smartphones-Waterproof-Ulefone-Armor-Pro/dp/B08G4S2ZPY/ref=sr_1_4?dchild=1&keywords=smartphones&qid=1601912711&sr=8-4"
       );
       products.push(oralC);
       const oralD = new product(
-        "/Users/Jin/Desktop/Strive/Day4/Exercise/HungJinChong/image/oralB.jpg",
-        "Oral B",
-        "Oral-B Genuine Precision Clean Replacement White Toothbrush Heads, Refills for Electric Toothbrush, Deep and Precise Cleaning, Pack of 12",
-        50
+        "/Users/Jin/Desktop/Strive/Day4/Exercise/HungJinChong/image/cubot.jpg",
+        "Cubot",
+        "Cubot Note 20 Pro 6GB/128GB SIM-Free Smartphone With 6.5 Inch Dewdrop, Android 10, Four Rear Camera, 4200mAh Battery, 4G Dual SIM, NFC, GPS, WiFi, UK Version-Green",
+        850,
+        "https://www.amazon.co.uk/SIM-Free-Smartphone-Dewdrop-Android-Version-Green/dp/B08H1YR8LC/ref=sr_1_3?dchild=1&keywords=smartphones&qid=1601912711&sr=8-3"
       );
       products.push(oralD);
       const oralE = new product(
-        "/Users/Jin/Desktop/Strive/Day4/Exercise/HungJinChong/image/oralB.jpg",
-        "Oral B",
-        "Oral-B Genuine Precision Clean Replacement White Toothbrush Heads, Refills for Electric Toothbrush, Deep and Precise Cleaning, Pack of 12",
-        50
+        "/Users/Jin/Desktop/Strive/Day4/Exercise/HungJinChong/image/p30.jpg",
+        "Huawei P30",
+        "Huawei P30 Lite 128 GB 6.15 inch FHD Dewdrop Display Smartphone with MP AI Ultra-wide Triple Camera, 4GB RAM, Android 9.0 Sim-Free Mobile Phone, Single SIM, UK Version, Blue",
+        950,
+        "https://www.amazon.co.uk/Dewdrop-Display-Smartphone-Ultra-wide-Sim-Free-Blue/dp/B07Q83DWJ3/ref=sxin_9_ac_d_rm?ac_md=3-1-aHVhd2Vp-ac_d_rm&cv_ct_cx=smartphones&dchild=1&keywords=smartphones&pd_rd_i=B07Q83DWJ3&pd_rd_r=5287ded0-4724-4050-816e-938d86cfaf77&pd_rd_w=GayEf&pd_rd_wg=EPV5n&pf_rd_p=0c799c14-fd2d-4652-a647-3581649b0ff7&pf_rd_r=5ZTMHYGN85W34JKMQ1KJ&psc=1&qid=1601912711&sr=1-2-fe323411-17bb-433b-b2f8-c44f2e1370d4"
       );
       products.push(oralE);
       const oralF = new product(
-        "/Users/Jin/Desktop/Strive/Day4/Exercise/HungJinChong/image/oralB.jpg",
-        "Oral B",
-        "Oral-B Genuine Precision Clean Replacement White Toothbrush Heads, Refills for Electric Toothbrush, Deep and Precise Cleaning, Pack of 12",
-        50
+        "/Users/Jin/Desktop/Strive/Day4/Exercise/HungJinChong/image/blackview.jpg",
+        "Black View A80",
+        "Smartphone, Blackview A80 PRO Android Phones Dual SIM Free Mobile Phone Unlocked, Quad Rear Camera, 4GB RAM+64G ROM, 4680mAh Battery, 6.49 inches Waterdrop Full-Screen, Fingerprint, Face ID - Blue",
+        650,
+        "https://www.amazon.co.uk/Blackview-A80-PRO-Full-Screen-Fingerprint/dp/B081T6LGGS/ref=sxin_9_ac_d_rm?ac_md=5-2-c21hcnQgcGhvbmVzIHVubG9ja2Vk-ac_d_rm&cv_ct_cx=smartphones&dchild=1&keywords=smartphones&pd_rd_i=B081T6LGGS&pd_rd_r=5287ded0-4724-4050-816e-938d86cfaf77&pd_rd_w=GayEf&pd_rd_wg=EPV5n&pf_rd_p=0c799c14-fd2d-4652-a647-3581649b0ff7&pf_rd_r=5ZTMHYGN85W34JKMQ1KJ&psc=1&qid=1601912711&sr=1-3-fe323411-17bb-433b-b2f8-c44f2e1370d4"
       );
       products.push(oralF);
       for (let i in products) {
@@ -118,6 +127,11 @@
           let th4 = document.createElement("TH");
           th4.appendChild(text4);
           document.querySelector("TR").appendChild(th4);
+
+          let text5 = document.createTextNode("Link");
+          let th5 = document.createElement("TH");
+          th5.appendChild(text5);
+          document.querySelector("TR").appendChild(th5);
         }
 
         let tr = document.createElement("TR");
@@ -147,6 +161,15 @@
         let td4 = document.createElement("TD");
         td4.appendChild(price);
         document.querySelectorAll("TR")[parseInt(i) + 1].appendChild(td4);
+
+        let td5 = document.createElement("TD");
+        let a = document.createElement("a");
+        a.setAttribute("href", products[i].link);
+        a.setAttribute("target", "_blank");
+        let text = document.createTextNode("link");
+        td5.appendChild(a);
+        a.appendChild(text);
+        document.querySelectorAll("TR")[parseInt(i) + 1].appendChild(td5);
       }
     </script>
     <h2>Address</h2>
@@ -162,5 +185,35 @@
       ></iframe
       ><a href="https://www.maps.ie/route-planner.htm">Google Route Planner</a>
     </div>
+    <div name="textArea">
+      <p>Leave a feedback</p>
+      <textarea rows="4" cols="50"> </textarea>
+    </div>
+    <div name="buttons">
+      <button onclick="background()">Color</button>
+      <button onclick="footer()">Footer</button>
+    </div>
+    <script>
+      function heading() {
+        document.querySelector("h1").style.color =
+          "#" + Math.floor(Math.random() * 16777215).toString(16);
+      }
+      function background() {
+        document.body.style.backgroundColor =
+          "#" + Math.floor(Math.random() * 16777215).toString(16);
+      }
+      function footer() {
+        if (document.querySelector("footer > p").innerHTML === "THIS IS FAKE") {
+          document.querySelector("footer > p").innerHTML =
+            "23, new york street, new york";
+        } else document.querySelector("footer > p").innerHTML = "THIS IS FAKE";
+      }
+    </script>
+    <footer>
+      <h1>SMARTPHONE SHOP</h1>
+      <p style="text-align: center" id="footerAddress">
+        23, new york street, new york
+      </p>
+    </footer>
   </body>
 </html>
