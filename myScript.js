@@ -5,7 +5,7 @@
 /*EXERCISE 1 
      Create a new welcome alert message when the page successfully loads
     */
-//window.alert("Hello! Welcome to my SmartPhone");
+window.alert("Hello! Welcome to my SmartPhone");
 /* EXERCISE 2
       Write a function to change the Title of the page in something else 
       (execute the function in browser console)
@@ -100,6 +100,9 @@ const makeThemMagnifiable = function () {
   cells.forEach((cell) => {
     cell.addEventListener("mouseenter", function () {
       cell.style.fontSize = "xx-large";
+    });
+    cell.addEventListener("mouseleave", function () {
+      cell.style.fontSize = "medium";
     });
   });
 };
