@@ -52,15 +52,20 @@
   </head>
 
   <body>
+    <header>
     <h1 onmouseover="addClassToTitle()" onmouseout="removeClassFromTitle()" onclick="makeItClickable()">
       Smartphone Shop
     </h1>
+  </header>
+  <section>
     <button onclick="heading()">Heading</button>
     <button onclick="changeTitle()">Change Title</button>
     <button onclick="background()">Color</button>
     <button onclick="changePContent()">Change P</button>
     <button onclick="firstUlDisappear()">Disappear</button>
     <button onclick="paintItGreen()">Green</button>
+  </section>
+  <section>
     <h2 id="listTitle">Todo List</h2>
     <ul id="firstList">
       <li><p>1st</p></li>
@@ -79,6 +84,8 @@
     <textarea oninput="changeListTitle()" rows="4" cols="50"> </textarea>
     <input type="text" id="inputList"></input>
     <button onclick="addToTheSecond()">Add</button>
+  </section>
+  <main>
     <script>
       class product {
         constructor(imgUrl, title, description, price, link) {
@@ -209,6 +216,8 @@
         document.querySelectorAll("TR")[parseInt(i) + 1].appendChild(td5);
       }
     </script>
+    </main>
+    <section>
     <h2>Address</h2>
     <div style="width: 100%" id="map">
       <iframe
@@ -245,6 +254,7 @@
       window.onload = makeThemMagnifiable();
       window.onload = toggleShowImages();
     </script>
+    </section>
     <footer>
       <h1>SMARTPHONE SHOP</h1>
       <p style="text-align: center" id="footerAddress">
