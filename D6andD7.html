@@ -40,15 +40,45 @@
       h2 {
         text-align: center;
       }
+      .red-color {
+        color: red;
+      }
+      .toggleBtn{
+        width: 100px;
+        height: 50px
+      }
     </style>
+    <script src="myScript.js"></script>
   </head>
 
   <body>
-    <h1>Smartphone Shop</h1>
+    <h1 onmouseover="addClassToTitle()" onmouseout="removeClassFromTitle()" onclick="makeItClickable()">
+      Smartphone Shop
+    </h1>
     <button onclick="heading()">Heading</button>
-    <input type="color" id="colourInput" />
+    <button onclick="changeTitle()">Change Title</button>
     <button onclick="background()">Color</button>
-
+    <button onclick="changePContent()">Change P</button>
+    <button onclick="firstUlDisappear()">Disappear</button>
+    <button onclick="paintItGreen()">Green</button>
+    <h2 id="listTitle">Todo List</h2>
+    <ul id="firstList">
+      <li><p>1st</p></li>
+      <li>2nd</li>
+      <li>3rd</li>
+    </ul>
+    <ul id="secondList">
+      <li>1st</li>
+      <li>2nd</li>
+      <li>3rd</li>
+    </ul>
+    <div>
+      <p>This text is just for the exercise</p>
+    </div>
+    <p>Leave a feedback</p>
+    <textarea oninput="changeListTitle()" rows="4" cols="50"> </textarea>
+    <input type="text" id="inputList"></input>
+    <button onclick="addToTheSecond()">Add</button>
     <script>
       class product {
         constructor(imgUrl, title, description, price, link) {
@@ -145,21 +175,28 @@
         imgTag.width = 200;
         imgTag.height = 200;
         td1.appendChild(imgTag);
+        let btn = document.createElement("BUTTON")
+        btn.innerText = "TOGGLE"
+        btn.setAttribute("class","toggleBtn")
+        td1.appendChild(btn)
         document.querySelectorAll("TR")[parseInt(i) + 1].appendChild(td1);
 
         let title = document.createTextNode(products[i].title);
         let td2 = document.createElement("TD");
         td2.appendChild(title);
+        td2.setAttribute("class","cell");
         document.querySelectorAll("TR")[parseInt(i) + 1].appendChild(td2);
 
         let description = document.createTextNode(products[i].description);
         let td3 = document.createElement("TD");
         td3.appendChild(description);
+        td3.setAttribute("class","cell");
         document.querySelectorAll("TR")[parseInt(i) + 1].appendChild(td3);
 
         let price = document.createTextNode(products[i].price);
         let td4 = document.createElement("TD");
         td4.appendChild(price);
+        td4.setAttribute("class","cell");
         document.querySelectorAll("TR")[parseInt(i) + 1].appendChild(td4);
 
         let td5 = document.createElement("TD");
@@ -185,10 +222,7 @@
       ></iframe
       ><a href="https://www.maps.ie/route-planner.htm">Google Route Planner</a>
     </div>
-    <div name="textArea">
-      <p>Leave a feedback</p>
-      <textarea rows="4" cols="50"> </textarea>
-    </div>
+
     <div name="buttons">
       <button onclick="background()">Color</button>
       <button onclick="footer()">Footer</button>
@@ -208,6 +242,8 @@
             "23, new york street, new york";
         } else document.querySelector("footer > p").innerHTML = "THIS IS FAKE";
       }
+      window.onload = makeThemMagnifiable();
+      window.onload = toggleShowImages();
     </script>
     <footer>
       <h1>SMARTPHONE SHOP</h1>
