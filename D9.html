@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+      crossorigin="anonymous"
+    />
+    <!--
+        BINGO CHALLENGE!!!
+        Create programmatically (with JS) a BINGO board with 76 cells, from 1 to 76.
+        Create a button to randomize a number from 1 to 76. The same number should be highlighted on the bingo board
+
+        EXTRA: 
+        - Take ALWAYS a new number (avoid randoming 10 3 times for example)
+        - Create a USER BOARD with random 24 numbers that highlights as the main board does
+        - Let the user choose HOW MANY user boards he's willing to play with and create them.
+    -->
+    <style></style>
+    <title>BINGO</title>
+  </head>
+  <body>
+    <h1 class="jumbotron text-center">BINGO!</h1>
+    <div class="row">
+      <p id="number" class="col text-center">asd</p>
+    </div>
+    <div class="row">
+      <input
+        type="button"
+        class="btn btn-dark col"
+        value="Random"
+        onclick="roll()"
+      />
+    </div>
+
+    <script>
+      let store = [];
+      for (let i = 0; i < 76; i++) {
+        store.push(i);
+      }
+      let number = 0;
+      window.onload = function () {
+        board();
+      };
+      const board = function () {
+        let board = document.createElement("div");
+        board.classList.add("container");
+        document.body.appendChild(board);
+        for (let i = 0; i < 5; i++) {
+          let row = document.createElement("div");
+          row.classList.add("row");
+          board.appendChild(row);
+          for (let j = 0; j < 5; j++) {
+            let cell = document.createElement("div");
+            cell.classList.add(
+              "col",
+              "text-center",
+              "font-weight-bolder",
+              "border"
+            );
+
+            let index = Math.floor(Math.random() * store.length);
+            number = store[index];
+            store.splice(index, 1);
+            cell.innerText = number;
+            row.appendChild(cell);
+          }
+        }
+      };
+      const roll = function () {
+        let text = document.querySelector("#number");
+        text.innerText = "TEst";
+      };
+    </script>
+  </body>
+</html>
