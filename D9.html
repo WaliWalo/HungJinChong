@@ -35,11 +35,20 @@
         onclick="roll()"
       />
     </div>
+    <div class="row">
+      <input
+        type="button"
+        class="btn btn-dark col"
+        value="ADD BOARD"
+        onclick="addBoard()"
+      />
+    </div>
 
     <script>
       window.onload = function () {
         board();
       };
+
       let boardNumber = [];
       const board = function () {
         let board = document.createElement("div");
@@ -64,12 +73,15 @@
             row.appendChild(cell);
           }
         }
+        board.style.marginBottom = "20px";
       };
+
       let count = 0;
       let store = [];
       for (let i = 0; i < 76; i++) {
         store.push(i);
       }
+      let bingoCount = 0;
       const roll = function () {
         let number = 0;
         count++;
@@ -84,13 +96,21 @@
         if (number === undefined) {
           text.innerText = "THE END";
         }
+
         let cells = document.querySelectorAll("#cell");
         for (let i = 0; i < boardNumber.length; i++) {
           if (number === boardNumber[i]) {
             console.log(number, "MATCH");
             cells[i].style.backgroundColor = "red";
+            bingoCount++;
           }
         }
+        if (bingoCount >= boardNumber.length) {
+          window.alert("BINGO!");
+        }
+      };
+      const addBoard = function () {
+        board();
       };
     </script>
   </body>
