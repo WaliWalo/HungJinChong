@@ -37,14 +37,10 @@
     </div>
 
     <script>
-      let store = [];
-      for (let i = 0; i < 76; i++) {
-        store.push(i);
-      }
-      let number = 0;
       window.onload = function () {
         board();
       };
+      let boardNumber = [];
       const board = function () {
         let board = document.createElement("div");
         board.classList.add("container");
@@ -61,18 +57,40 @@
               "font-weight-bolder",
               "border"
             );
-
-            let index = Math.floor(Math.random() * store.length);
-            number = store[index];
-            store.splice(index, 1);
+            cell.setAttribute("id", "cell");
+            let number = Math.floor(Math.random() * 76);
             cell.innerText = number;
+            boardNumber.push(number);
             row.appendChild(cell);
           }
         }
       };
+      let count = 0;
+      let store = [];
+      for (let i = 0; i < 76; i++) {
+        store.push(i);
+      }
       const roll = function () {
+        let number = 0;
+        count++;
+        console.log(count);
+        console.log(store);
         let text = document.querySelector("#number");
-        text.innerText = "TEst";
+        let index = Math.floor(Math.random() * store.length);
+        number = store[index];
+        store.splice(index, 1);
+        text.innerText = number;
+
+        if (number === undefined) {
+          text.innerText = "THE END";
+        }
+        let cells = document.querySelectorAll("#cell");
+        for (let i = 0; i < boardNumber.length; i++) {
+          if (number === boardNumber[i]) {
+            console.log(number, "MATCH");
+            cells[i].style.backgroundColor = "red";
+          }
+        }
       };
     </script>
   </body>
