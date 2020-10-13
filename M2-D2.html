@@ -56,10 +56,16 @@ Could be the Amazon way, the Spotify or Apple music way or some other blog out t
       /* body */
       body {
         position: relative;
-        overflow-y: auto; /* padding for fixed navbar */
       }
       .navbar-light .nav-pills .nav-item .nav-link.active {
         background-color: #e75a7c;
+      }
+      .row {
+        margin-top: 20px;
+      }
+      .card-img-top {
+        width: 287px;
+        height: 250px;
       }
     </style>
   </head>
@@ -87,24 +93,16 @@ Could be the Amazon way, the Spotify or Apple music way or some other blog out t
           <a class="nav-link" href="#albums">Albums</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#mdo">@mdo</a>
+          <a class="nav-link" href="#review">Reviews</a>
         </li>
-        <li class="nav-item dropdown">
-          <a
-            class="nav-link dropdown-toggle"
-            data-toggle="dropdown"
-            href="#"
-            role="button"
-            aria-haspopup="true"
-            aria-expanded="false"
-            >Dropdown</a
-          >
-          <div class="dropdown-menu">
-            <a class="dropdown-item" href="#one">one</a>
-            <a class="dropdown-item" href="#two">two</a>
-            <div role="separator" class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#three">three</a>
-          </div>
+        <li class="nav-item">
+          <a class="nav-link" href="#shame">Hall of Shame</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#bts">BTS</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#covers">Covers</a>
         </li>
       </ul>
     </nav>
@@ -116,118 +114,191 @@ Could be the Amazon way, the Spotify or Apple music way or some other blog out t
             - 3 albums per row when you are on a tablet (or a smaller window)
             - 2 albums per row when you are on a small screen
         -->
-      <h5 id="albums">Albums</h5>
-      <div class="container">
-        <div class="row">
-          <div class="col-sm">
-            <div class="card" style="width: 18rem">
-              <img src="http://placeholder.it" class="card-img-top" alt="..." />
-              <div class="card-body">
-                <p class="card-text">
-                  Some quick example text to build on the card title and make up
-                  the bulk of the card's content.
-                </p>
-              </div>
+      <div class="row">
+        <div class="col"><h5 id="albums">Albums</h5></div>
+        <div class="col">
+          <a
+            class="btn btn-primary"
+            data-toggle="collapse"
+            href="#albumsSec"
+            role="button"
+            aria-expanded="false"
+            aria-controls="collapseExample"
+          >
+            Hide
+          </a>
+        </div>
+      </div>
+
+      <div class="row mx-auto" id="albumsSec">
+        <div class="col-6 col-md-4 col-lg-3">
+          <div class="card mx-auto" style="width: 18rem">
+            <img
+              src="image/mapOfTheSoul.jpg"
+              class="card-img-top"
+              alt="..."
+              data-toggle="collapse"
+              href="#btsTxt"
+              role="button"
+              aria-expanded="false"
+            />
+            <div class="card-body" id="btsTxt">
+              <p class="card-text">
+                Map of the Soul: Persona is the sixth extended play by South
+                Korean boy band BTS. It was released on April 12, 2019, via Big
+                Hit Entertainment with "Boy with Luv" as its lead single.
+              </p>
             </div>
           </div>
-          <div class="col-sm">
-            <div class="card" style="width: 18rem">
-              <img src="..." class="card-img-top" alt="..." />
-              <div class="card-body">
-                <p class="card-text">
-                  Some quick example text to build on the card title and make up
-                  the bulk of the card's content.
-                </p>
-              </div>
+        </div>
+        <div class="col-6 col-md-4 col-lg-3">
+          <div class="card mx-auto" style="width: 18rem">
+            <img
+              src="image/moreAndMore.jpeg"
+              class="card-img-top"
+              alt="..."
+              data-toggle="collapse"
+              href="#moreTxt"
+              role="button"
+              aria-expanded="false"
+            />
+            <div class="card-body" id="moreTxt">
+              <p class="card-text">
+                More & More is the ninth Korean extended play by the South
+                Korean girl group Twice. It was released by JYP Entertainment
+                and Republic Records on June 1, 2020, and features the lead
+                single of the same name. It is their first release with Republic
+                Records.
+              </p>
             </div>
           </div>
-          <div class="col-sm">
-            <div class="card" style="width: 18rem">
-              <img src="..." class="card-img-top" alt="..." />
-              <div class="card-body">
-                <p class="card-text">
-                  Some quick example text to build on the card title and make up
-                  the bulk of the card's content.
-                </p>
-              </div>
+        </div>
+        <div class="col-6 col-md-4 col-lg-3">
+          <div class="card mx-auto" style="width: 18rem">
+            <img
+              src="image/Ly-her.jpg"
+              class="card-img-top"
+              alt="..."
+              data-toggle="collapse"
+              href="#lyTxt"
+              role="button"
+              aria-expanded="false"
+            />
+            <div class="card-body" id="lyTxt">
+              <p class="card-text">
+                Love Yourself: Her is the fifth extended play by South Korean
+                boy group BTS. The EP was released on September 18, 2017, by Big
+                Hit Entertainment. The album was released in four versions and
+                contains nine tracks, with "DNA" as its lead single.
+              </p>
             </div>
           </div>
-          <div class="col-sm">
-            <div class="card" style="width: 18rem">
-              <img src="..." class="card-img-top" alt="..." />
-              <div class="card-body">
-                <p class="card-text">
-                  Some quick example text to build on the card title and make up
-                  the bulk of the card's content.
-                </p>
-              </div>
+        </div>
+        <div class="col-6 col-md-4 col-lg-3">
+          <div class="card mx-auto" style="width: 18rem">
+            <img
+              src="image/blackpink.png"
+              class="card-img-top"
+              alt="..."
+              data-toggle="collapse"
+              href="#blackTxt"
+              role="button"
+              aria-expanded="false"
+            />
+            <div class="card-body" id="blackTxt">
+              <p class="card-text">
+                The Album is the debut Korean-language studio album by South
+                Korean girl group Blackpink, released on October 2, 2020,
+                through YG Entertainment and Interscope. The album was released
+                for pre-order on August 28. It was Blackpink's first Korean
+                release since Kill This Love.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-6 col-md-4 col-lg-3">
+          <div class="card mx-auto" style="width: 18rem">
+            <img
+              src="image/obsession.png"
+              class="card-img-top"
+              alt="..."
+              data-toggle="collapse"
+              href="#obsTxt"
+              role="button"
+              aria-expanded="false"
+            />
+            <div class="card-body" id="obsTxt">
+              <p class="card-text">
+                Obsession is the sixth studio album by South Korean–Chinese boy
+                band Exo. It was released on November 27, 2019, by SM
+                Entertainment. It is the group's first album that was promoted
+                as a six-member group.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-6 col-md-4 col-lg-3">
+          <div class="card mx-auto" style="width: 18rem">
+            <img
+              src="image/square.jpg"
+              class="card-img-top"
+              alt="..."
+              data-toggle="collapse"
+              href="#squareTxt"
+              role="button"
+              aria-expanded="false"
+            />
+            <div class="card-body" id="squareTxt">
+              <p class="card-text">
+                Square Up is the first Korean extended play by South Korean girl
+                group Blackpink. It was released on June 15, 2018 by YG
+                Entertainment. It is available in two versions and contains four
+                tracks, with "Ddu-Du Ddu-Du" released as the lead single.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-6 col-md-4 col-lg-3">
+          <div class="card mx-auto" style="width: 18rem">
+            <img
+              src="image/dream.jpg"
+              class="card-img-top"
+              alt="..."
+              data-toggle="collapse"
+              href="#dreamTxt"
+              role="button"
+              aria-expanded="false"
+            />
+            <div class="card-body" id="dreamTxt">
+              <p class="card-text">
+                The Dream Chapter: Eternity is the second extended play by South
+                Korean boy band TXT. It was released on May 18, 2020 by Big Hit
+                Entertainment and Republic Records. It serves as a follow-up to
+                TXT's first studio album The Dream Chapter: Magic.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-6 col-md-4 col-lg-3">
+          <div class="card mx-auto" style="width: 18rem">
+            <img
+              src="image/itzy.jpg"
+              class="card-img-top"
+              alt="..."
+              data-toggle="collapse"
+              href="#itzyTxt"
+              role="button"
+              aria-expanded="false"
+            />
+            <div class="card-body" id="itzyTxt">
+              <p class="card-text">
+                Not Shy is the third Korean extended play by South Korean girl group Itzy. It was released on August 17, 2020 by JYP Entertainment. It is available in three versions and contains six tracks, with "Not Shy" released as the lead single. 
+              </p>
             </div>
           </div>
         </div>
       </div>
-      <h4 id="mdo">@mdo</h4>
-      <p>
-        Occaecat commodo aliqua delectus. Fap craft beer deserunt skateboard ea.
-        Lomo bicycle rights adipisicing banh mi, velit ea sunt next level
-        locavore single-origin coffee in magna veniam. High life id vinyl, echo
-        park consequat quis aliquip banh mi pitchfork. Vero VHS est adipisicing.
-        Consectetur nisi DIY minim messenger bag. Cred ex in, sustainable
-        delectus consectetur fanny pack iphone.Occaecat commodo aliqua delectus.
-        Fap craft beer deserunt skateboard ea. Lomo bicycle rights adipisicing
-        banh mi, velit ea sunt next level locavore single-origin coffee in magna
-        veniam. High life id vinyl, echo park consequat quis aliquip banh mi
-        pitchfork. Vero VHS est adipisicing. Consectetur nisi DIY minim
-        messenger bag. Cred ex in, sustainable delectus consectetur fanny pack
-        iphone.
-      </p>
-      <h4 id="one">one</h4>
-      <p>
-        Occaecat commodo aliqua delectus. Fap craft beer deserunt skateboard ea.
-        Lomo bicycle rights adipisicing banh mi, velit ea sunt next level
-        locavore single-origin coffee in magna veniam. High life id vinyl, echo
-        park consequat quis aliquip banh mi pitchfork. Vero VHS est adipisicing.
-        Consectetur nisi DIY minim messenger bag. Cred ex in, sustainable
-        delectus consectetur fanny pack iphone.Occaecat commodo aliqua delectus.
-        Fap craft beer deserunt skateboard ea. Lomo bicycle rights adipisicing
-        banh mi, velit ea sunt next level locavore single-origin coffee in magna
-        veniam. High life id vinyl, echo park consequat quis aliquip banh mi
-        pitchfork. Vero VHS est adipisicing. Consectetur nisi DIY minim
-        messenger bag. Cred ex in, sustainable delectus consectetur fanny pack
-        iphone.
-      </p>
-      <h4 id="two">two</h4>
-      <p>
-        Occaecat commodo aliqua delectus. Fap craft beer deserunt skateboard ea.
-        Lomo bicycle rights adipisicing banh mi, velit ea sunt next level
-        locavore single-origin coffee in magna veniam. High life id vinyl, echo
-        park consequat quis aliquip banh mi pitchfork. Vero VHS est adipisicing.
-        Consectetur nisi DIY minim messenger bag. Cred ex in, sustainable
-        delectus consectetur fanny pack iphone.Occaecat commodo aliqua delectus.
-        Fap craft beer deserunt skateboard ea. Lomo bicycle rights adipisicing
-        banh mi, velit ea sunt next level locavore single-origin coffee in magna
-        veniam. High life id vinyl, echo park consequat quis aliquip banh mi
-        pitchfork. Vero VHS est adipisicing. Consectetur nisi DIY minim
-        messenger bag. Cred ex in, sustainable delectus consectetur fanny pack
-        iphone.
-      </p>
-      <h4 id="three">three</h4>
-      <p>
-        Occaecat commodo aliqua delectus. Fap craft beer deserunt skateboard ea.
-        Lomo bicycle rights adipisicing banh mi, velit ea sunt next level
-        locavore single-origin coffee in magna veniam. High life id vinyl, echo
-        park consequat quis aliquip banh mi pitchfork. Vero VHS est adipisicing.
-        Consectetur nisi DIY minim messenger bag. Cred ex in, sustainable
-        delectus consectetur fanny pack iphone.Occaecat commodo aliqua delectus.
-        Fap craft beer deserunt skateboard ea. Lomo bicycle rights adipisicing
-        banh mi, velit ea sunt next level locavore single-origin coffee in magna
-        veniam. High life id vinyl, echo park consequat quis aliquip banh mi
-        pitchfork. Vero VHS est adipisicing. Consectetur nisi DIY minim
-        messenger bag. Cred ex in, sustainable delectus consectetur fanny pack
-        iphone.
-      </p>
-    </div>
-
-    <!-- EXERCISE 4
+      <!-- EXERCISE 4
             Create a section for the album review.
             Pick one of your fav albums, and create a section with:
             - Cover
@@ -238,27 +309,287 @@ Could be the Amazon way, the Spotify or Apple music way or some other blog out t
             - Tracklist
             - ... And whatever you think it's interesting about it!
         -->
+      <div class="row">
+        <div class="col"><h4 id="review">Review</h4></div>
+        <div class="col">
+          <a
+            class="btn btn-primary"
+            data-toggle="collapse"
+            href="#reviewSec"
+            role="button"
+            aria-expanded="false"
+            aria-controls="collapseExample"
+          >
+            Hide
+          </a>
+        </div>
+      </div>
 
-    <!-- EXERCISE 5
+      <div class="row" id="reviewSec">
+        <div class="col-4">
+          <img
+            src="http://placehold.it/300x200"
+            class="card-img-top"
+            alt="..."
+          />
+        </div>
+        <div class="col-8">
+          <p>Cover:</p>
+          <p>Title:</p>
+          <p>Band:</p>
+          <p>Length:</p>
+          <p>Genre:</p>
+          <p>Tracklist:</p>
+        </div>
+      </div>
+      <!-- EXERCISE 5
             Worst album list! Find out the music you don't really like or you find overrated and list it
             in this "hall of shame" chart!
         -->
+      <div class="row">
+        <div class="col"><h4 id="shame">Hall of Shame</h4></div>
+        <div class="col">
+          <a
+            class="btn btn-primary"
+            data-toggle="collapse"
+            href="#shameSec"
+            role="button"
+            aria-expanded="false"
+            aria-controls="collapseExample"
+          >
+            Hide
+          </a>
+        </div>
+      </div>
 
-    <!-- EXERCISE 6
+      <div class="row mx-auto" id="shameSec">
+        <div class="col-6 col-md-4 col-lg-3">
+          <div class="card mx-auto" style="width: 18rem">
+            <img
+              src="http://placehold.it/300x200"
+              class="card-img-top"
+              alt="..."
+            />
+            <div class="card-body">
+              <p class="card-text">
+                Some quick example text to build on the card title and make up
+                the bulk of the card's content.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-6 col-md-4 col-lg-3">
+          <div class="card mx-auto" style="width: 18rem">
+            <img
+              src="http://placehold.it/300x200"
+              class="card-img-top"
+              alt="..."
+            />
+            <div class="card-body">
+              <p class="card-text">
+                Some quick example text to build on the card title and make up
+                the bulk of the card's content.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-6 col-md-4 col-lg-3">
+          <div class="card mx-auto" style="width: 18rem">
+            <img
+              src="http://placehold.it/300x200"
+              class="card-img-top"
+              alt="..."
+            />
+            <div class="card-body">
+              <p class="card-text">
+                Some quick example text to build on the card title and make up
+                the bulk of the card's content.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-6 col-md-4 col-lg-3">
+          <div class="card mx-auto" style="width: 18rem">
+            <img
+              src="http://placehold.it/300x200"
+              class="card-img-top"
+              alt="..."
+            />
+            <div class="card-body">
+              <p class="card-text">
+                Some quick example text to build on the card title and make up
+                the bulk of the card's content.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-6 col-md-4 col-lg-3">
+          <div class="card mx-auto" style="width: 18rem">
+            <img
+              src="http://placehold.it/300x200"
+              class="card-img-top"
+              alt="..."
+            />
+            <div class="card-body">
+              <p class="card-text">
+                Some quick example text to build on the card title and make up
+                the bulk of the card's content.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-6 col-md-4 col-lg-3">
+          <div class="card mx-auto" style="width: 18rem">
+            <img
+              src="http://placehold.it/300x200"
+              class="card-img-top"
+              alt="..."
+            />
+            <div class="card-body">
+              <p class="card-text">
+                Some quick example text to build on the card title and make up
+                the bulk of the card's content.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-6 col-md-4 col-lg-3">
+          <div class="card mx-auto" style="width: 18rem">
+            <img
+              src="http://placehold.it/300x200"
+              class="card-img-top"
+              alt="..."
+            />
+            <div class="card-body">
+              <p class="card-text">
+                Some quick example text to build on the card title and make up
+                the bulk of the card's content.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-6 col-md-4 col-lg-3">
+          <div class="card mx-auto" style="width: 18rem">
+            <img
+              src="http://placehold.it/300x200"
+              class="card-img-top"
+              alt="..."
+            />
+            <div class="card-body">
+              <p class="card-text">
+                Some quick example text to build on the card title and make up
+                the bulk of the card's content.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- EXERCISE 6
             Do you have any musician / band you admire or you are fan of?
             This section is dedicated to him / her / them!
             Feel free to experiment in this part of the page.
         -->
+      <div class="row">
+        <div class="col"><h4 id="bts">BTS</h4></div>
+        <div class="col">
+          <a
+            class="btn btn-primary"
+            data-toggle="collapse"
+            href="#btsSec"
+            role="button"
+            aria-expanded="false"
+            aria-controls="collapseExample"
+          >
+            Hide
+          </a>
+        </div>
+      </div>
+      <div class="container" id="btsSec"><p>Stuff about BTS</p></div>
 
-    <!-- EXERCISE 7
+      <!-- EXERCISE 7
             Just covers!
             Create a tapestry of album pictures. Every album picture must be "square" (use CSS to do that).
             Put at least 20 covers (also repeated) to have a nice effect and see how Bootstrap handles it.
         -->
+      <h4 id="covers">Covers</h4>
+      <div class="row">
+        <div class="col d-flex justify-content-center">
+          <img src="http://placehold.it/200x200" />
+        </div>
+        <div class="col d-flex justify-content-center">
+          <img src="http://placehold.it/200x200" />
+        </div>
+        <div class="col d-flex justify-content-center">
+          <img src="http://placehold.it/200x200" />
+        </div>
+        <div class="col d-flex justify-content-center">
+          <img src="http://placehold.it/200x200" />
+        </div>
+        <div class="col d-flex justify-content-center">
+          <img src="http://placehold.it/200x200" />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col d-flex justify-content-center">
+          <img src="http://placehold.it/200x200" />
+        </div>
+        <div class="col d-flex justify-content-center">
+          <img src="http://placehold.it/200x200" />
+        </div>
+        <div class="col d-flex justify-content-center">
+          <img src="http://placehold.it/200x200" />
+        </div>
+        <div class="col d-flex justify-content-center">
+          <img src="http://placehold.it/200x200" />
+        </div>
+        <div class="col d-flex justify-content-center">
+          <img src="http://placehold.it/200x200" />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col d-flex justify-content-center">
+          <img src="http://placehold.it/200x200" />
+        </div>
+        <div class="col d-flex justify-content-center">
+          <img src="http://placehold.it/200x200" />
+        </div>
+        <div class="col d-flex justify-content-center">
+          <img src="http://placehold.it/200x200" />
+        </div>
+        <div class="col d-flex justify-content-center">
+          <img src="http://placehold.it/200x200" />
+        </div>
+        <div class="col d-flex justify-content-center">
+          <img src="http://placehold.it/200x200" />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col d-flex justify-content-center">
+          <img src="http://placehold.it/200x200" />
+        </div>
+        <div class="col d-flex justify-content-center">
+          <img src="http://placehold.it/200x200" />
+        </div>
+        <div class="col d-flex justify-content-center">
+          <img src="http://placehold.it/200x200" />
+        </div>
+        <div class="col d-flex justify-content-center">
+          <img src="http://placehold.it/200x200" />
+        </div>
+        <div class="col d-flex justify-content-center">
+          <img src="http://placehold.it/200x200" />
+        </div>
+      </div>
+    </div>
 
     <!-- EXERCISE 8
             Implement a footer with some information / social links
         -->
+    <footer class="jumbotron mt-5">
+      <div class="container">
+        <h2>FOOTER</h2>
+      </div>
+    </footer>
 
     <!-- EXTRA:
          EXERCISE 9
