@@ -59,6 +59,10 @@ Could be the Amazon way, the Spotify or Apple music way or some other blog out t
       }
       .navbar-light .nav-pills .nav-item .nav-link.active {
         background-color: #e75a7c;
+        color: black;
+      }
+      .nav-link {
+        color: black;
       }
       .row {
         margin-top: 20px;
@@ -66,6 +70,19 @@ Could be the Amazon way, the Spotify or Apple music way or some other blog out t
       .card-img-top {
         width: 287px;
         height: 250px;
+      }
+      #mainSec {
+        background-color: #2c363f;
+      }
+      h4 {
+        font-size: xx-large;
+        color: white;
+      }
+      .btn {
+        background-color: #e75a7c;
+      }
+      .details p {
+        color: white;
       }
     </style>
   </head>
@@ -106,7 +123,7 @@ Could be the Amazon way, the Spotify or Apple music way or some other blog out t
         </li>
       </ul>
     </nav>
-    <div>
+    <div id="mainSec">
       <!-- EXERCISE 3
             Create a responsive section for your favourite albums.
             In this section you should have:
@@ -115,10 +132,10 @@ Could be the Amazon way, the Spotify or Apple music way or some other blog out t
             - 2 albums per row when you are on a small screen
         -->
       <div class="row">
-        <div class="col"><h5 id="albums">Albums</h5></div>
+        <div class="col"><h4 id="albums">Albums</h4></div>
         <div class="col">
           <a
-            class="btn btn-primary"
+            class="btn"
             data-toggle="collapse"
             href="#albumsSec"
             role="button"
@@ -292,7 +309,10 @@ Could be the Amazon way, the Spotify or Apple music way or some other blog out t
             />
             <div class="card-body" id="itzyTxt">
               <p class="card-text">
-                Not Shy is the third Korean extended play by South Korean girl group Itzy. It was released on August 17, 2020 by JYP Entertainment. It is available in three versions and contains six tracks, with "Not Shy" released as the lead single. 
+                Not Shy is the third Korean extended play by South Korean girl
+                group Itzy. It was released on August 17, 2020 by JYP
+                Entertainment. It is available in three versions and contains
+                six tracks, with "Not Shy" released as the lead single.
               </p>
             </div>
           </div>
@@ -313,7 +333,7 @@ Could be the Amazon way, the Spotify or Apple music way or some other blog out t
         <div class="col"><h4 id="review">Review</h4></div>
         <div class="col">
           <a
-            class="btn btn-primary"
+            class="btn"
             data-toggle="collapse"
             href="#reviewSec"
             role="button"
@@ -327,19 +347,19 @@ Could be the Amazon way, the Spotify or Apple music way or some other blog out t
 
       <div class="row" id="reviewSec">
         <div class="col-4">
-          <img
-            src="http://placehold.it/300x200"
-            class="card-img-top"
-            alt="..."
-          />
+          <img src="image/mapOfTheSoul.jpg" class="card-img-top" alt="..." />
         </div>
-        <div class="col-8">
-          <p>Cover:</p>
-          <p>Title:</p>
-          <p>Band:</p>
-          <p>Length:</p>
-          <p>Genre:</p>
-          <p>Tracklist:</p>
+        <div class="col-8 details">
+          <p>Cover:Map of the Soul: Persona</p>
+          <p>Title:Persona</p>
+          <p>Band:BTS</p>
+          <p>Release date: 12 April 2019</p>
+          <p>Awards: Mnet Asian Music Award for Album of the Year</p>
+          <p>
+            Places recorded: Big Hit Entertainment Co., Ltd. (Seoul), The
+            Village (Los Angeles)
+          </p>
+          <p>Genre: K-pop</p>
         </div>
       </div>
       <!-- EXERCISE 5
@@ -350,7 +370,7 @@ Could be the Amazon way, the Spotify or Apple music way or some other blog out t
         <div class="col"><h4 id="shame">Hall of Shame</h4></div>
         <div class="col">
           <a
-            class="btn btn-primary"
+            class="btn"
             data-toggle="collapse"
             href="#shameSec"
             role="button"
@@ -493,7 +513,7 @@ Could be the Amazon way, the Spotify or Apple music way or some other blog out t
         <div class="col"><h4 id="bts">BTS</h4></div>
         <div class="col">
           <a
-            class="btn btn-primary"
+            class="btn"
             data-toggle="collapse"
             href="#btsSec"
             role="button"
