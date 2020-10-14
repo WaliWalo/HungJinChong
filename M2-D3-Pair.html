@@ -52,13 +52,26 @@
         Ex 11) Create a footer with the company information and a button "contact us"
 
         Ex 11) Create a button next to each section to collapse and reopen the given section
-        Ex 12) Create a method that counts the number of "travels" on the page
-        Ex 13) Create a modal view with a message and a email field
+        Ex 12) Create a method that counts the number of "travels" on the page=>NOT DONE
+        Ex 13) Create a modal view with a message and a email field =>NOT DONE
         Ex 14) When the user clicks on "contact us" the modal is displayed
-        Ex 15) Create a function that adds a "HOT" badge to all the "Welcome Summer" offers
+        Ex 15) Create a function that adds a "HOT" badge to all the "Welcome Summer" offers=>NOT DONE
         Ex 16) Create a function to delete all "cards" from the page
       -->
-    <style></style>
+    <style>
+      #dubaiImg {
+        float: left;
+        width: 66%;
+        margin-right: 15px;
+      }
+      .card-img-top {
+        height: 300px;
+        width: 350px;
+      }
+      .hideBtn {
+        float: right;
+      }
+    </style>
   </head>
   <body data-spy="scroll" data-target="#navbar-example2" data-offset="0">
     <!-- Ex 1) Implement a navigation bar, connected to all the sections of the page.  -->
@@ -103,84 +116,215 @@
         </li>
       </ul>
     </nav>
-    <div>
-      <!-- Ex 3) Add a Jumbotron section in which you present name and claim of the tour operator -->
-      <h4 id="name">Travel for life</h4>
-      <div class="jumbotron jumbotron-fluid">
-        <div class="container">
-          <h1 class="display-4">
-            <svg
-              width="1em"
-              height="1em"
-              viewBox="0 0 16 16"
-              class="bi bi-globe"
-              fill="currentColor"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                fill-rule="evenodd"
-                d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm7.5-6.923c-.67.204-1.335.82-1.887 1.855A7.97 7.97 0 0 0 5.145 4H7.5V1.077zM4.09 4H2.255a7.025 7.025 0 0 1 3.072-2.472 6.7 6.7 0 0 0-.597.933c-.247.464-.462.98-.64 1.539zm-.582 3.5h-2.49c.062-.89.291-1.733.656-2.5H3.82a13.652 13.652 0 0 0-.312 2.5zM4.847 5H7.5v2.5H4.51A12.5 12.5 0 0 1 4.846 5zM8.5 5v2.5h2.99a12.495 12.495 0 0 0-.337-2.5H8.5zM4.51 8.5H7.5V11H4.847a12.5 12.5 0 0 1-.338-2.5zm3.99 0V11h2.653c.187-.765.306-1.608.338-2.5H8.5zM5.145 12H7.5v2.923c-.67-.204-1.335-.82-1.887-1.855A7.97 7.97 0 0 1 5.145 12zm.182 2.472a6.696 6.696 0 0 1-.597-.933A9.268 9.268 0 0 1 4.09 12H2.255a7.024 7.024 0 0 0 3.072 2.472zM3.82 11H1.674a6.958 6.958 0 0 1-.656-2.5h2.49c.03.877.138 1.718.312 2.5zm6.853 3.472A7.024 7.024 0 0 0 13.745 12H11.91a9.27 9.27 0 0 1-.64 1.539 6.688 6.688 0 0 1-.597.933zM8.5 12h2.355a7.967 7.967 0 0 1-.468 1.068c-.552 1.035-1.218 1.65-1.887 1.855V12zm3.68-1h2.146c.365-.767.594-1.61.656-2.5h-2.49a13.65 13.65 0 0 1-.312 2.5zm2.802-3.5h-2.49A13.65 13.65 0 0 0 12.18 5h2.146c.365.767.594 1.61.656 2.5zM11.27 2.461c.247.464.462.98.64 1.539h1.835a7.024 7.024 0 0 0-3.072-2.472c.218.284.418.598.597.933zM10.855 4H8.5V1.077c.67.204 1.335.82 1.887 1.855.173.324.33.682.468 1.068z"
-              />
-            </svg>
-            Travel for Life
-          </h1>
-          <p class="lead">
-            Travel for Life is a travel agency providing travel service
-            including air, ground or sea travel.
-          </p>
-        </div>
+
+    <!-- Ex 3) Add a Jumbotron section in which you present name and claim of the tour operator -->
+    <h4 id="name">Travel for life</h4>
+    <div class="jumbotron jumbotron-fluid">
+      <div class="container">
+        <h1 class="display-4">
+          <svg
+            width="1em"
+            height="1em"
+            viewBox="0 0 16 16"
+            class="bi bi-globe"
+            fill="currentColor"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm7.5-6.923c-.67.204-1.335.82-1.887 1.855A7.97 7.97 0 0 0 5.145 4H7.5V1.077zM4.09 4H2.255a7.025 7.025 0 0 1 3.072-2.472 6.7 6.7 0 0 0-.597.933c-.247.464-.462.98-.64 1.539zm-.582 3.5h-2.49c.062-.89.291-1.733.656-2.5H3.82a13.652 13.652 0 0 0-.312 2.5zM4.847 5H7.5v2.5H4.51A12.5 12.5 0 0 1 4.846 5zM8.5 5v2.5h2.99a12.495 12.495 0 0 0-.337-2.5H8.5zM4.51 8.5H7.5V11H4.847a12.5 12.5 0 0 1-.338-2.5zm3.99 0V11h2.653c.187-.765.306-1.608.338-2.5H8.5zM5.145 12H7.5v2.923c-.67-.204-1.335-.82-1.887-1.855A7.97 7.97 0 0 1 5.145 12zm.182 2.472a6.696 6.696 0 0 1-.597-.933A9.268 9.268 0 0 1 4.09 12H2.255a7.024 7.024 0 0 0 3.072 2.472zM3.82 11H1.674a6.958 6.958 0 0 1-.656-2.5h2.49c.03.877.138 1.718.312 2.5zm6.853 3.472A7.024 7.024 0 0 0 13.745 12H11.91a9.27 9.27 0 0 1-.64 1.539 6.688 6.688 0 0 1-.597.933zM8.5 12h2.355a7.967 7.967 0 0 1-.468 1.068c-.552 1.035-1.218 1.65-1.887 1.855V12zm3.68-1h2.146c.365-.767.594-1.61.656-2.5h-2.49a13.65 13.65 0 0 1-.312 2.5zm2.802-3.5h-2.49A13.65 13.65 0 0 0 12.18 5h2.146c.365.767.594 1.61.656 2.5zM11.27 2.461c.247.464.462.98.64 1.539h1.835a7.024 7.024 0 0 0-3.072-2.472c.218.284.418.598.597.933zM10.855 4H8.5V1.077c.67.204 1.335.82 1.887 1.855.173.324.33.682.468 1.068z"
+            />
+          </svg>
+          Travel for Life
+        </h1>
+        <p class="lead">
+          Travel for Life is a travel agency providing travel service including
+          air, ground or sea travel.
+        </p>
       </div>
-      <!-- Ex 4) Implement the "Deal of the Week" section. In this section you'll display 4 destinations.
+    </div>
+    <!-- Ex 4) Implement the "Deal of the Week" section. In this section you'll display 4 destinations.
          In this section you should have:
             - 4 destinations per row when the screen is very large
             - 3 destinations per row when you are on a tablet (or a smaller window)
             - 2 destinations per row when you are on a small screen
  -->
-      <h4 id="dealWeek">Deal of the Week</h4>
-      <div class="container" id="dealWeekTbl">
-        <div class="row" id="dealWeekRow"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col"><h4 id="dealWeek">Deal of the Week</h4></div>
+        <div class="col" id="hideBtn">
+          <a
+            class="btn"
+            data-toggle="collapse"
+            href="#dealWeekTbl"
+            role="button"
+            aria-expanded="false"
+            aria-controls="collapseExample"
+          >
+            <h4>Hide</h4>
+          </a>
+        </div>
       </div>
-      <!-- Ex 5) Implement the "Welcome Summer" section. In this section you'll propose 6 destinations
+    </div>
+
+    <div class="container" id="dealWeekTbl">
+      <div class="row" id="dealWeekRow"></div>
+    </div>
+    <!-- Ex 5) Implement the "Welcome Summer" section. In this section you'll propose 6 destinations
             In this section you should have:
                 - 6 destinations per row when the screen is very large
                 - 3 destinations per row when you are on a tablet (or a smaller window)
                 - 2 destinations per row when you are on a small screen
+                Ex 8) Add to the Welcome Summer destinations a large shadow
          -->
-      <h4 id="welcomeSummer">Welcome Summer</h4>
-      <p>
-        In incididunt echo park, officia deserunt mcsweeney's proident master
-        cleanse thundercats sapiente veniam. Excepteur VHS elit, proident
-        shoreditch +1 biodiesel laborum craft beer. Single-origin coffee
-        wayfarers irure four loko, cupidatat terry richardson master cleanse.
-        Assumenda you probably haven't heard of them art party fanny pack,
-        tattooed nulla cardigan tempor ad. Proident wolf nesciunt sartorial
-        keffiyeh eu banh mi sustainable. Elit wolf voluptate, lo-fi ea portland
-        before they sold out four loko. Locavore enim nostrud mlkshk brooklyn
-        nesciunt.In incididunt echo park, officia deserunt mcsweeney's proident
-        master cleanse thundercats sapiente veniam. Excepteur VHS elit, proident
-        shoreditch +1 biodiesel laborum craft beer. Single-origin coffee
-        wayfarers irure four loko, cupidatat terry richardson master cleanse.
-        Assumenda you probably haven't heard of them art party fanny pack,
-        tattooed nulla cardigan tempor ad. Proident wolf nesciunt sartorial
-        keffiyeh eu banh mi sustainable. Elit wolf voluptate, lo-fi ea portland
-        before they sold out four loko. Locavore enim nostrud mlkshk brooklyn
-        nesciunt.
-      </p>
-      <!-- Ex 6) Implement a "Deal of the day" section. In this section you'll have:
+    <h4 id="welcomeSummer">Welcome Summer</h4>
+    <div class="container shadow-lg p-3 mb-5 bg-white rounded" id="summerTbl">
+      <div class="row" id="summerRow"></div>
+    </div>
+    <!-- Ex 6) Implement a "Deal of the day" section. In this section you'll have:
             - 66% of the page with a picture of the destination
             - 33% with Name, dates, price and a short description
+            Ex 7) Make the "Deal of the day" section disappear when the user is mobile
  -->
-      <h4 id="dealDay">Deal of the Day</h4>
-      <p>...</p>
-      <!-- Ex 9) Create a section Last Minute, in which you'll display the pictures from the destinations as Cards -->
-      <h4 id="lastMin">Last Minute Deal</h4>
-      <p>...</p>
-      <!-- Ex 10) Create a "Testimonial" section, in which the user can find several feedback from fake customers -->
-      <h4 id="testimonial">Testimonial</h4>
-      <p>...</p>
+    <h4 id="dealDay">Deal of the Day</h4>
+    <div class="container d-none d-lg-block">
+      <div class="row" id="img">
+        <div class="">
+          <img src="image/dubai.jpg" id="dubaiImg" />
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Reiciendis
+          eum quibusdam cumque expedita quas neque vero et dolore nisi similique
+          laboriosam perferendis sit accusantium, aspernatur est. Provident
+          delectus ea porro?
+        </div>
+      </div>
     </div>
+    <!-- Ex 9) Create a section Last Minute, in which you'll display the pictures from the destinations as Cards -->
+    <h4 id="lastMin">Last Minute Deal</h4>
+
+    <button onclick="delCard()">Delete</button>
+    <div class="row mx-auto mt-3" id="lastMinTbl"></div>
+
+    <!-- Ex 10) Create a "Testimonial" section, in which the user can find several feedback from fake customers -->
+    <h4 id="testimonial">Testimonial</h4>
+    <div class="container">
+      <div class="row">
+        <div class="col-4"><img src="image/profPic.jfif" /></div>
+        <div class="col-8">
+          <svg
+            width="1em"
+            height="1em"
+            viewBox="0 0 16 16"
+            class="bi bi-star-fill"
+            fill="currentColor"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"
+            />
+          </svg>
+          <svg
+            width="1em"
+            height="1em"
+            viewBox="0 0 16 16"
+            class="bi bi-star-fill"
+            fill="currentColor"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"
+            />
+          </svg>
+          <svg
+            width="1em"
+            height="1em"
+            viewBox="0 0 16 16"
+            class="bi bi-star-fill"
+            fill="currentColor"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"
+            />
+          </svg>
+          <svg
+            width="1em"
+            height="1em"
+            viewBox="0 0 16 16"
+            class="bi bi-star-fill"
+            fill="currentColor"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"
+            />
+          </svg>
+          <svg
+            width="1em"
+            height="1em"
+            viewBox="0 0 16 16"
+            class="bi bi-star"
+            fill="currentColor"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.523-3.356c.329-.314.158-.888-.283-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767l-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288l1.847-3.658 1.846 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.564.564 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z"
+            />
+          </svg>
+          <p>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repellat
+            odit ullam facilis repellendus reiciendis fugiat consequuntur
+            aliquid quos nemo ut laudantium dolorem architecto, ipsum quisquam
+            quidem consectetur? Harum, ducimus hic?
+          </p>
+        </div>
+      </div>
+    </div>
+
     <footer>
-      <div class="jumbotron"><h1>FOOTER</h1></div>
+      <div class="jumbotron">
+        <h1>TRAVEL FOR LIFE</h1>
+        <button
+          class="btn btn-primary"
+          data-toggle="modal"
+          data-target="#exampleModal"
+        >
+          Contact Us
+        </button>
+        <div
+          class="modal fade"
+          id="exampleModal"
+          tabindex="-1"
+          aria-labelledby="exampleModalLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Contact Us</h5>
+                <button
+                  type="button"
+                  class="close"
+                  data-dismiss="modal"
+                  aria-label="Close"
+                >
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">Phone Number: 1235677</div>
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  data-dismiss="modal"
+                >
+                  Close
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </footer>
     <script src="M2-D3-Pair.js"></script>
     <script
