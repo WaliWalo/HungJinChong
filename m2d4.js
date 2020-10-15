@@ -64,3 +64,7 @@ const assign = function () {
     }
   }
 };
+
+const refresh = function () {
+  location.reload();
+};
