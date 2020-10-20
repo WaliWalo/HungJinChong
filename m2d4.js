@@ -13,6 +13,7 @@ const addName = function () {
     row.appendChild(text);
     namesTbl.appendChild(row);
   }
+  name.innerHTML = "";
 };
 
 const assign = function () {
@@ -43,22 +44,15 @@ const assign = function () {
     //create card body
     for (let j = 0; j < loop; j++) {
       let index = Math.floor(Math.random() * nameList.length);
+
       let cardBody = document.createElement("p");
       cardBody.classList.add("card-text");
       cardBody.innerText = nameList[index];
       let user = document.querySelector(`#${nameList[index]}`);
       user.remove();
       cardBody.setAttribute("id", nameList[index]);
-      cardBody.addEventListener("click", function () {
-        let namesTbl = document.querySelector("#names");
-        let name = nameList[index];
-        let text = document.createTextNode(name);
-        let row = document.createElement("row");
-        row.classList.add("d-block");
-        row.setAttribute("id", name);
-        row.appendChild(text);
-        namesTbl.appendChild(row);
-      });
+      cardBody.setAttribute("onClick", "removeUser(this.id)");
+
       card.appendChild(cardBody);
       nameList.splice(index, 1);
     }
@@ -67,4 +61,18 @@ const assign = function () {
 
 const refresh = function () {
   location.reload();
+};
+
+const removeUser = function (clicked) {
+  let namesTbl = document.querySelector("#names");
+  let name = clicked;
+  let text = document.createTextNode(name);
+  let row = document.createElement("row");
+  nameList.push(name);
+  row.classList.add("d-block");
+  row.classList.add(name);
+  row.appendChild(text);
+  namesTbl.appendChild(row);
+  let user = document.querySelector(`#${name}`);
+  user.remove();
 };
