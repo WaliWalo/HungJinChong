@@ -32,6 +32,9 @@
       header a.blog-header-logo {
         border: solid 1px;
       }
+      h1 {
+        border: solid 1px;
+      }
       /* EX2) Write a selector to target every children of the navbar */
       nav a.p-2 {
         border: solid 1px;
@@ -70,6 +73,9 @@
       /* EX10) Write a selector to target the footer */
       footer.blog-footer {
         border: solid 1px;
+      }
+      html {
+        scroll-behavior: smooth;
       }
     </style>
     <meta charset="utf-8" />
@@ -498,6 +504,88 @@
         EX19) Write a function and attach it to the "Older" button, to remove the last Blog Post
         EX20) Write an alert with the name of the author every time the user hover with the mouse over an author name
     */
+      //  EX11) Write a function to add a new link into the navbar
+      let nav = document.querySelector(".nav");
+      let a = document.querySelector(".nav a.p-2");
+      let newA = a;
+      newA.innerText = "TEST";
+      nav.appendChild(newA);
+      // EX12) Write a function to remove the "Search" magnifying glass icon
+      let searchIcon = document.querySelector("header svg");
+      searchIcon.remove();
+      //EX13) Write a function to change the background of the jumbotron
+      let jumbotron = document.querySelector("div.nav-scroller+.jumbotron");
+      jumbotron.classList.remove("bg-dark");
+      jumbotron.style.backgroundColor = "black";
+      //EX14) Write a function to change the color of the main title
+      let h1 = document.querySelector("h1");
+      h1.style.color = "black";
+      h1.style.backgroundColor = "white";
+      //EX15) Write a function to change the column size for post headings
+      let postCol = document.querySelector("div.jumbotron+div");
+      postCol.style.width = "800px";
+      //EX16) Write a function to remove all the links under "Elsewhere"
+      let elseWhere = document.querySelectorAll("aside ol:not(.mb-0) li");
+      elseWhere.forEach((element) => {
+        element.remove();
+      });
+      //EX17) Write a function to trim just the first 50 characters in the
+      //first paragraph for each blog post SOMETHING WRONG
+      let firstPs = document.querySelectorAll("p.blog-post-meta+p");
+
+      firstPs.forEach((firstP) => {
+        firstP.innerText = firstP.innerText.substr(50);
+      });
+      //EX18) Write a function and attach it to the "Newer" button,
+      //to add new Blog Post (just div and title)
+      let btn = document.querySelector("a.btn.disabled");
+      btn.classList.remove("disabled");
+      btn.removeAttribute("aria-disabled");
+      btn.removeAttribute("href");
+      btn.setAttribute("href", "#newBlog");
+      btn.setAttribute("onclick", "newBtn()");
+      const newBtn = function () {
+        let blogDiv = document.querySelector("div.blog-main h3");
+        let newBlog = document.createElement("div");
+        newBlog.classList.add("blog-post");
+        newBlog.setAttribute("id", "newBlog");
+        let h2 = document.createElement("h2");
+        h2.classList.add("blog-post-title");
+        h2.innerText = "NEW TITLE";
+        let metaP = document.createElement("p");
+        metaP.classList.add("blog-post-meta");
+        metaP.innerText = "January 2, 2020 by ";
+        let author = document.createElement("a");
+        a.innerText = "TEST";
+        a.setAttribute("onmouseover", "authorHover(this)");
+        metaP.insertAdjacentElement("beforeend", a);
+        newBlog.appendChild(h2);
+        h2.after(metaP);
+        let p = document.createElement("p");
+        p.innerText =
+          "This blog post shows a few different types of content that’s supported and styled with Bootstrap. Basic typography, images, and code are all supported.";
+        metaP.after(p);
+
+        blogDiv.after(newBlog);
+      };
+      //EX19) Write a function and attach it to the "Older" button, to remove the last Blog Post
+      let removeBtn = document.querySelector("nav.blog-pagination>a");
+      removeBtn.removeAttribute("href");
+      removeBtn.setAttribute("onclick", "removeBlog()");
+
+      const removeBlog = function () {
+        let lastBlog = document.querySelector("div.blog-post:last-of-type");
+        lastBlog.remove();
+      };
+      //EX20) Write an alert with the name of the author
+      // every time the user hover with the mouse over an author name
+      let authorLinks = document.querySelectorAll("p.blog-post-meta a");
+      authorLinks.forEach((authorLink) => {
+        authorLink.setAttribute("onmouseover", "authorHover(this)");
+      });
+      const authorHover = function (e) {
+        alert(e.innerText);
+      };
     </script>
   </body>
 </html>
