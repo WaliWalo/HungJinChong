@@ -45,17 +45,16 @@ Could be the Amazon way, the Spotify or Apple music way or some other blog out t
       /* PREVIOUS STUFF */
     </style>
   </head>
-  <body>
+  <body data-spy="scroll" data-target="#bread" data-offset="0">
     <div class="bg-color">
       <div class="container">
         <!-- EXERCISE 1
         Use the specific bootstrap component to implement a Breadcrumb
         -->
-        <nav aria-label="breadcrumb sticky-top">
-          <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="#">Home</a></li>
-            <li class="breadcrumb-item"><a href="#">Library</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Data</li>
+        <nav aria-label="breadcrumb" class="sticky-top" id="bread">
+          <ol class="breadcrumb nav nav-pills">
+            <li class="breadcrumb-item nav-item"><a href="#favAlbum">Favourite Albums</a></li>
+            <li class="breadcrumb-item nav-item"><a href="#trackList">Track Lists</a></li>
           </ol>
         </nav>
         <!-- EXERCISE 2
@@ -75,8 +74,9 @@ Could be the Amazon way, the Spotify or Apple music way or some other blog out t
         -->
         <div class="album py-3 bg-light">
           <div class="container">
-            <h2>Favourite Albums</h2>
-            <div class="row">
+            <h2 id="favAlbum">Favourite Albums</h2>
+            <button class="btn btn-dark" type="button" data-toggle="collapse" data-target="#favAlbumList" aria-expanded="false" aria-controls="collapseExample">Collapse</button>
+            <div class="row" id="favAlbumList">
               <div class="col-md-4">
                 <div class="card mb-4 shadow-sm">
                   <img
@@ -85,6 +85,7 @@ Could be the Amazon way, the Spotify or Apple music way or some other blog out t
                     class="card-img-top"
                     width="100%"
                     height="225"
+                    data-toggle="tooltip" data-placement="top" title="Headie One"
                   />
                   <div class="card-body">
                     <h3>
@@ -108,6 +109,7 @@ Could be the Amazon way, the Spotify or Apple music way or some other blog out t
                     class="card-img-top"
                     width="100%"
                     height="225"
+                    data-toggle="tooltip" data-placement="top" title="Gimme Some Truth"
                   />
                   <div class="card-body">
                     <h3>
@@ -132,6 +134,7 @@ Could be the Amazon way, the Spotify or Apple music way or some other blog out t
                     class="card-img-top"
                     width="100%"
                     height="225"
+                    data-toggle="tooltip" data-placement="top" title="Shoot for the Stars, Aim for the Moon"
                   />
                   <div class="card-body">
                     <h3>
@@ -157,6 +160,7 @@ Could be the Amazon way, the Spotify or Apple music way or some other blog out t
                     class="card-img-top"
                     width="100%"
                     height="225"
+                    data-toggle="tooltip" data-placement="top" title="10 Songs"
                   />
                   <div class="card-body">
                     <h3>
@@ -181,6 +185,7 @@ Could be the Amazon way, the Spotify or Apple music way or some other blog out t
                     class="card-img-top"
                     width="100%"
                     height="225"
+                    data-toggle="tooltip" data-placement="top" title="Live Around The World"
                   />
                   <div class="card-body">
                     <h3>
@@ -204,6 +209,7 @@ Could be the Amazon way, the Spotify or Apple music way or some other blog out t
                     class="card-img-top"
                     width="100%"
                     height="225"
+                    data-toggle="tooltip" data-placement="top" title="Divinely Uninspired to a Hellish Extent"
                   />
                   <div class="card-body">
                     <h3>
@@ -225,6 +231,7 @@ Could be the Amazon way, the Spotify or Apple music way or some other blog out t
                     class="card-img-top"
                     width="100%"
                     height="225"
+                    data-toggle="tooltip" data-placement="top" title="Songs From My Heart"
                   />
                   <div class="card-body">
                     <h3>
@@ -247,6 +254,7 @@ Could be the Amazon way, the Spotify or Apple music way or some other blog out t
                     class="card-img-top"
                     width="100%"
                     height="225"
+                    data-toggle="tooltip" data-placement="top" title="Legends never die"
                   />
                   <div class="card-body">
                     <h3>
@@ -270,6 +278,7 @@ Could be the Amazon way, the Spotify or Apple music way or some other blog out t
                     class="card-img-top"
                     width="100%"
                     height="225"
+                    data-toggle="tooltip" data-placement="top" title="50 Years – Don't Stop"
                   />
                   <div class="card-body">
                     <h3>
@@ -337,7 +346,7 @@ Could be the Amazon way, the Spotify or Apple music way or some other blog out t
         -->
         <div class="tracklist py-3 bg-light">
           <div class="container">
-            <h2>Tracklists</h2>
+            <h2 id="trackList">Tracklists</h2>
             <div class="accordion" id="accordionExample">
               <div class="card">
                 <div class="card-header" id="headingOne">
@@ -522,7 +531,7 @@ Could be the Amazon way, the Spotify or Apple music way or some other blog out t
                                         </div>
                                       </div>
                                     
-                                  </div>
+                                  
                                   <div class="modal-footer">
                                     <button
                                       type="button"
@@ -535,7 +544,9 @@ Could be the Amazon way, the Spotify or Apple music way or some other blog out t
                                     <button
                                       type="button"
                                       class="btn btn-primary"
+                                      data-dismiss="modal"
                                       onclick="addTrack()"
+                                      
                                     >
                                       Add
                                     </button>
@@ -544,7 +555,6 @@ Could be the Amazon way, the Spotify or Apple music way or some other blog out t
                                 </div>
                               </div>
                             </div>
-                          </td>
                         </tr>
                       </tbody>
                     </table>
@@ -787,20 +797,17 @@ Could be the Amazon way, the Spotify or Apple music way or some other blog out t
       const addTrack = function () {
         let table = document.querySelector("tbody")
         let lastRow = table.querySelector("tr:nth-last-of-type(2)")
-        console.log(table);
-        console.log(lastRow)
         let newRow = document.createElement("tr")
         newRow.setAttribute("scope","row")
         let newNumber = document.createElement("th")
         let newTitle = document.createElement("td")
         let newLength = document.createElement("td")
         let newNumberText = document.querySelector("#trackNumber")
-        console.log(newNumberText)
-        newNumber.innerText = newNumberText.innerText
+        newNumber.innerText = newNumberText.value
         let newTitleText = document.querySelector("#trackName")
-        newTitle.innerText = newTitleText.innerText
+        newTitle.innerText = newTitleText.value
         let newLengthText = document.querySelector("#trackLength")
-        newLength.innerText = newLengthText.innerText
+        newLength.innerText = newLengthText.value
         let newBtnTd = document.createElement("td")
         let newRemoveBtn = document.createElement("button")
         newRemoveBtn.setAttribute("type", "button")
@@ -813,7 +820,12 @@ Could be the Amazon way, the Spotify or Apple music way or some other blog out t
         newRow.appendChild(newTitle)
         newRow.appendChild(newLength)
         newRow.appendChild(newBtnTd)
-        lastRow.insertAdjacentElement('afterend',newRow)
+        newRow.classList.add("animate")
+        newRow.classList.add("fadeIn")
+        setTimeout(function () {
+            lastRow.insertAdjacentElement('afterend',newRow)
+        }, 2500);
+        
       };
 
       const reset = function(){
@@ -830,11 +842,11 @@ Could be the Amazon way, the Spotify or Apple music way or some other blog out t
             For each "Album cover" in your page, add a tooltip with the title
         -->
 
-    <!-- EXERCISE 14
+    <!-- EXERCISE 14 //NOT DONE
             Update the header and footer links using scrollspy to render a smooth transition to the parts of the document.
         -->
 
-    <!-- EXERCISE 15
+    <!-- EXERCISE 15 //NOT DONE
             Add a Album Carousel with controls to display the top 10 albums
         -->
 
