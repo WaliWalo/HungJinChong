@@ -1,0 +1,82 @@
+.bg-color {
+  background-color: black;
+}
+
+.jumbotron {
+  font-size: x-large;
+  font-weight: bolder;
+  color: white;
+  min-height: 460px;
+  background-image: url("image/M2-D9/jumbotronImg.jpg");
+  background-size: cover;
+  background-position: bottom;
+}
+
+.animate {
+  -webkit-animation-duration: 2s;
+  animation-duration: 2s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+@-webkit-keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.fadeOut {
+  -webkit-animation-name: fadeOut;
+  animation-name: fadeOut;
+}
+
+.fast-transition {
+  position: relative; /* For positioning the pseudo-element */
+  box-shadow: 0 0 10px 0 rgba(255, 255, 255, 0.3);
+}
+
+.fast-transition::before {
+  /* Position the pseudo-element. */
+  content: " ";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  /* Create the box shadow at expanded size. */
+  box-shadow: 0 10px 50px 0 rgba(255, 255, 255, 0.5);
+
+  /* Hidden by default. */
+  opacity: 0;
+  transition: opacity 500ms;
+}
+
+.fast-transition:hover::before {
+  /* Show the pseudo-element on hover. */
+  opacity: 1;
+}
+
+.modal-content {
+  background-color: black;
+}
+
+.form-check-input {
+  position: relative;
+}
+
+footer {
+  color: white;
+}

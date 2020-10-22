@@ -1,0 +1,50 @@
+/* EXERCISE 1
+            For all Albums we'd like to have a consistent style.
+            Create a class for:
+            - The album container
+            - The album cover
+            - The album title
+            - The album group / singer / dj
+            - The album genres
+            - The album duration
+            - etc
+         */
+html {
+  scroll-behavior: smooth;
+}
+.bg-pink {
+  background-color: #e75a7c;
+}
+.bg-dark {
+  background-color: #2c363f;
+}
+
+/* body */
+body {
+  position: relative;
+}
+
+.navbar-light .nav-pills .nav-item .nav-link.active {
+  background-color: #e75a7c;
+  color: black;
+}
+.nav-link {
+  color: black;
+}
+.row {
+  margin-top: 20px;
+}
+.card-img-top {
+  width: 287px;
+  height: 250px;
+}
+h4 {
+  font-size: xx-large;
+  color: white;
+}
+.btn {
+  background-color: #e75a7c;
+}
+.details p {
+  color: white;
+}
