@@ -209,11 +209,20 @@ order of characters
 
 --- Examples
 
-    reverse('apple') === 'leppa'
+    reverse('apple') === 'elppa'
     reverse('hello') === 'olleh'
     reverse('Greetings!') === '!sgniteerG'
  */
-
+console.log("\nExercise 7");
+const ex7 = function (str) {
+  let split = str.split(``);
+  let reverse = "";
+  for (let i = split.length - 1; i >= 0; i--) {
+    reverse = reverse + split[i];
+  }
+  return reverse;
+};
+console.log(ex7("apple"));
 /* 8) CHUNK
 
 Given an array and chunk size, divide the array into many subarrays
