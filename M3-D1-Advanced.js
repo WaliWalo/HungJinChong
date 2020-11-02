@@ -187,7 +187,21 @@ step has spaces on the right hand side!
         '##  '
         '### '
         '####' */
-
+console.log("\nExercise 6");
+const ex6 = function (n) {
+  let result = "";
+  for (let i = 0; i < n; i++) {
+    for (let k = 0; k < i + 1; k++) {
+      result += "#";
+    }
+    for (let j = 0; j < n - 1 - i; j++) {
+      result += "-";
+    }
+    result += "\n";
+  }
+  return result;
+};
+console.log(ex6(5));
 /* 7) REVERSE STRING
 
 Given a string, return a new string with the reversed
