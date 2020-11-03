@@ -236,7 +236,16 @@ where each subarray is of length size
     chunk([1, 2, 3, 4, 5], 4) --> [[ 1, 2, 3, 4], [5]]
     chunk([1, 2, 3, 4, 5], 10) --> [[ 1, 2, 3, 4, 5]]
 */
-
+console.log("\nExercise 8");
+const ex8 = function (arr, x) {
+  let count = 0;
+  let finalArr = [];
+  for (let i = 0; i < arr.length / x; i++) {
+    finalArr.push(arr.slice(i * x, (count += x)));
+  }
+  return finalArr;
+};
+console.log(ex8([1, 2, 3, 4, 5, 6, 7], 5));
 /* 9) PYRAMID
 
 Write a function that accepts a positive number N.
@@ -256,6 +265,24 @@ pyramid has spaces on both the left and right hand sides
         ' ### '
         '#####' */
 
+console.log("\nExercise 9");
+const ex9 = function (n) {
+  let result = "";
+  for (let i = 0; i < n; i++) {
+    for (let j = 0; j < n - i; j++) {
+      result += "-";
+    }
+    for (let k = 0; k < 2 * i + 1; k++) {
+      result += "#";
+    }
+    for (let j = 0; j < n - i; j++) {
+      result += "-";
+    }
+    result += "\n";
+  }
+  return result;
+};
+console.log(ex9(5));
 /* 10) SPYRAL MATRIX
 
 Write a function that accepts an integer N
@@ -277,3 +304,43 @@ and returns a NxN spiral matrix.
         [10,  9,  8, 7]]
 
 */
+console.log("\nExercise 10");
+const ex10 = function (n) {
+  const results = [];
+  for (let i = 0; i < n; i++) {
+    results.push([]);
+  }
+  let counter = 1;
+  let startColumn = 0;
+  let endColumn = n - 1;
+  let startRow = 0;
+  let endRow = n - 1;
+  while (startColumn <= endColumn && startRow <= endRow) {
+    // Top row
+    for (let i = startColumn; i <= endColumn; i++) {
+      results[startRow][i] = counter;
+      counter++;
+    }
+    startRow++;
+    // Right column
+    for (let i = startRow; i <= endRow; i++) {
+      results[i][endColumn] = counter;
+      counter++;
+    }
+    endColumn--;
+    // Bottom row
+    for (let i = endColumn; i >= startColumn; i--) {
+      results[endRow][i] = counter;
+      counter++;
+    }
+    endRow--;
+    // start column
+    for (let i = endRow; i >= startRow; i--) {
+      results[i][startColumn] = counter;
+      counter++;
+    }
+    startColumn++;
+  }
+  return results;
+};
+console.log(ex10(4));
