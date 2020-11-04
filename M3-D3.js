@@ -160,7 +160,16 @@ const loadImage2 = function () {
       }
     })
     .catch((error) => {
-      console.log(error);
+      let alert = document.querySelector("div.alert.alert-danger");
+      alert.innerHTML = error;
+      if (alert.style.display === "none") {
+        alert.style.display = "block";
+      } else {
+        alert.style.display = "none";
+      }
+      setTimeout(function () {
+        alert.style.display = "none";
+      }, 5000);
     });
   setTimeout(function () {
     myToast.classList.remove("show");
@@ -173,3 +182,39 @@ const hideImage = function (e) {
 
   card.remove();
 };
+
+const loadCarousel = function () {
+  const searchQuery = fetch(
+    `http://www.splashbase.co/api/v1/images/search?query=forest`
+  )
+    .then((response) => response.json())
+    .then((body) => {
+      let carouselIndicator = document.querySelector(".carousel-indicators");
+      let carouselInner = document.querySelector(".carousel-inner");
+      for (let i = 0; i < body.images.length; i++) {
+        let li = document.createElement("li");
+        li.setAttribute("data-target", "#caourselExaxmpleIndicators");
+        li.setAttribute("data-slide-to", i);
+
+        let div = document.createElement("div");
+        div.classList.add("carousel-item");
+
+        if (i === 0) {
+          li.classList.add("active");
+          div.classList.add("active");
+        }
+
+        carouselIndicator.appendChild(li);
+
+        let img = document.createElement("img");
+        img.setAttribute("src", body.images[i].large_url);
+        img.classList.add("d-block");
+        img.classList.add("w-100");
+        img.setAttribute("alt", body.images[i].id);
+        div.appendChild(img);
+        carouselInner.appendChild(div);
+      }
+    });
+};
+
+loadCarousel();
