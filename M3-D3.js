@@ -1,9 +1,13 @@
 const loadImage = function () {
+  let myToast = document.querySelector(".toast");
   const searchQuery = fetch(
     `http://www.splashbase.co/api/v1/images/search?query=laptop`
   )
     .then((response) => response.json())
     .then((body) => {
+      let toastBody = document.querySelector(".toast-body");
+      toastBody.innerHTML = `Total images loaded: ${body.images.length}`;
+      myToast.classList.add("show");
       let row = document.querySelector(".album div.row");
       row.remove();
       let container = document.querySelector(
@@ -71,17 +75,23 @@ const loadImage = function () {
         newRow.appendChild(card);
       }
     });
+  setTimeout(function () {
+    myToast.classList.remove("show");
+  }, 5000);
 };
 
 const loadImage2 = function () {
-  let myToast = document.querySelector("#myToast");
-  myToast.classList.add("show");
+  let myToast = document.querySelector(".toast");
+
   let searchInput = document.querySelector("#searchInput");
   const searchQuery = fetch(
     `http://www.splashbase.co/api/v1/images/search?query=${searchInput.value}`
   )
     .then((response) => response.json())
     .then((body) => {
+      let toastBody = document.querySelector(".toast-body");
+      toastBody.innerHTML = `Total images loaded: ${body.images.length}`;
+      myToast.classList.add("show");
       let row = document.querySelector(".album div.row");
       row.remove();
       let container = document.querySelector(
@@ -148,7 +158,13 @@ const loadImage2 = function () {
                             </div>`;
         newRow.appendChild(card);
       }
+    })
+    .catch((error) => {
+      console.log(error);
     });
+  setTimeout(function () {
+    myToast.classList.remove("show");
+  }, 5000);
 };
 
 const hideImage = function (e) {
