@@ -214,6 +214,15 @@ const loadCarousel = function () {
         div.appendChild(img);
         carouselInner.appendChild(div);
       }
+
+      const imgUrl = body.images.map((image) => image.id);
+      console.log(imgUrl);
+      const unsplash = body.images.filter((image) => image.site !== "unsplash");
+      console.log(unsplash);
+      const total = body.images
+        .map((image) => image.id)
+        .reduce((accumulator, element) => accumulator + element, 0);
+      console.log(total);
     });
 };
 
