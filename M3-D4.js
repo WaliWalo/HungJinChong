@@ -31,7 +31,7 @@ async function loadData() {
       <div class="card mb-4 shadow-sm">
         <img src="${book.img}" />
         <div class="card-body">
-          <p class="card-text">
+          <p class="card-text text-truncate">
             ${book.title}
           </p>
           <div
@@ -60,7 +60,7 @@ async function loadData() {
                 Add to Cart
               </button>
             </div>
-            <small class="text-muted">9 mins</small>
+            <small class="text-muted">${book.asin}</small>
           </div>
         </div>
       </div>
