@@ -80,6 +80,7 @@ const btnClickEvent = () => {
 };
 
 const cart = [];
+let totalPrice = 0;
 const addToCart = function () {
   let selected = this.parentElement.parentElement.parentElement.parentElement;
   selected.classList.add("bg-success");
@@ -90,7 +91,8 @@ const addToCart = function () {
   let list = document.querySelector(".list-group");
   let li = document.createElement("li");
   li.classList.add("list-group-item");
-  li.innerHTML = selectedBook[0].title;
+  li.setAttribute("id", selectedBook[0].price);
+  li.innerHTML = `${selectedBook[0].title} Price: ${selectedBook[0].price}  `;
   let delBtn = document.createElement("button");
   delBtn.classList.add("btn");
   delBtn.classList.add("btn-dark");
@@ -98,6 +100,9 @@ const addToCart = function () {
   delBtn.setAttribute("onclick", "removeCart(this)");
   li.appendChild(delBtn);
   list.appendChild(li);
+  let totalTxt = document.querySelector("#totalTxt");
+  totalPrice = totalPrice + selectedBook[0].price;
+  totalTxt.innerText = `Total Price: ${Math.round(totalPrice * 100) / 100}`;
   //console.log(selectedBook[0].title);
 };
 
@@ -125,6 +130,11 @@ const search = () => {
 };
 
 const removeCart = (cart) => {
+  let totalTxt = document.querySelector("#totalTxt");
+  //let total = totalTxt.innerText.slice(13);
+  totalPrice = totalPrice - cart.parentElement.id;
+  totalTxt.innerText = Math.round(totalPrice * 100) / 100;
+  //console.log(total);
   cart.parentElement.remove();
 };
 
