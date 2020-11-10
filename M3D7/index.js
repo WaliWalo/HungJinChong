@@ -14,7 +14,6 @@ window.onload = () => {
 
 tableOnLoad = async () => {
   const users = await fetchData();
-  console.log(users);
   let htmlString = "";
   const table = document.querySelector(".user-info");
   users.forEach((user) => {
@@ -22,7 +21,7 @@ tableOnLoad = async () => {
       htmlString +
       `<tr> 
       <th scope="row">${user.id}</th>
-      <td>${user.name}</td>
+      <td><a href="details.html?user=${user.id}">${user.name}</a></td>
       <td>${user.username}</td>
       <td>${user.email}</td>
       <td>${user.address.street}, ${user.address.suite}, ${user.address.city}, ${user.address.zipcode}</td>
@@ -40,7 +39,7 @@ filteredTable = (users) => {
       htmlString +
       `<tr> 
           <th scope="row">${user.id}</th>
-          <td>${user.name}</td>
+          <td><a href="details.html?user=${user.id}">${user.name}</a></td>
           <td>${user.username}</td>
           <td>${user.email}</td>
           <td>${user.address.street}, ${user.address.suite}, ${user.address.city}, ${user.address.zipcode}</td>
@@ -94,8 +93,24 @@ const userSelection = () => {
       console.log(`Please make a selection`);
   }
 };
-
+let sorted = false;
 const sortName = () => {
   let rows = document.querySelectorAll("tbody tr");
-  console.log(rows[1].childNodes[2].data);
+  let names = [];
+  rows.forEach((row) => {
+    names.push(
+      //row.querySelector("th").innerText,
+      row.querySelector("td").innerText
+    );
+  });
+  console.log(rows[0].querySelector("td").innerText);
+  if (sorted == false) {
+    names.sort();
+    sorted = true;
+  } else if (sorted == true) {
+    names.sort();
+    names.reverse();
+    sorted = false;
+  }
+  console.table(names);
 };
