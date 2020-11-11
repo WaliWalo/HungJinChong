@@ -28,6 +28,7 @@ tableOnLoad = async () => {
       </tr>`;
   });
   table.innerHTML = htmlString;
+  initMap(users);
 };
 
 filteredTable = (users) => {
@@ -58,6 +59,7 @@ filterUserName = async () => {
     user.username.toLowerCase().includes(input.value.toLowerCase())
   );
   filteredTable(result);
+  initMap(result);
 };
 
 filterName = async () => {
@@ -66,6 +68,7 @@ filterName = async () => {
     user.name.toLowerCase().includes(input.value.toLowerCase())
   );
   filteredTable(result);
+  initMap(result);
 };
 
 filterEmail = async () => {
@@ -74,6 +77,7 @@ filterEmail = async () => {
     user.email.toLowerCase().includes(input.value.toLowerCase())
   );
   filteredTable(result);
+  initMap(result);
 };
 
 const userSelection = () => {
@@ -94,23 +98,68 @@ const userSelection = () => {
   }
 };
 let sorted = false;
-const sortName = () => {
-  let rows = document.querySelectorAll("tbody tr");
-  let names = [];
-  rows.forEach((row) => {
-    names.push(
-      //row.querySelector("th").innerText,
-      row.querySelector("td").innerText
-    );
-  });
-  console.log(rows[0].querySelector("td").innerText);
+sortName = async () => {
+  const users = await fetchData();
+
   if (sorted == false) {
-    names.sort();
+    users.sort(function (a, b) {
+      var nameA = a.name.toUpperCase(); // ignore upper and lowercase
+      var nameB = b.name.toUpperCase(); // ignore upper and lowercase
+      if (nameA < nameB) {
+        return -1;
+      }
+      if (nameA > nameB) {
+        return 1;
+      }
+
+      // names must be equal
+      return 0;
+    });
     sorted = true;
   } else if (sorted == true) {
-    names.sort();
-    names.reverse();
+    users.sort(function (a, b) {
+      var nameA = a.name.toUpperCase(); // ignore upper and lowercase
+      var nameB = b.name.toUpperCase(); // ignore upper and lowercase
+      if (nameA > nameB) {
+        return -1;
+      }
+      if (nameA < nameB) {
+        return 1;
+      }
+
+      // names must be equal
+      return 0;
+    });
     sorted = false;
   }
-  console.table(names);
+  filteredTable(users);
+};
+
+// Initialize and add the map
+initMap = async (users) => {
+  // The location of Uluru
+  const uluru = { lat: -25.344, lng: 131.036 };
+  // The map, centered at Uluru
+  const map = new google.maps.Map(document.getElementById("map"), {
+    zoom: 1,
+    center: uluru,
+  });
+  console.log(await users);
+  users.forEach((user) => {
+    const pos = {
+      lat: parseFloat(user.address.geo.lat),
+      lng: parseFloat(user.address.geo.lng),
+    };
+    const marker = new google.maps.Marker({
+      position: pos,
+      map: map,
+      title: user.name,
+    });
+  });
+
+  // // The marker, positioned at Uluru
+  // const marker = new google.maps.Marker({
+  //   position: uluru,
+  //   map: map,
+  // });
 };

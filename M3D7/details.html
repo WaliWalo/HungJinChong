@@ -57,6 +57,7 @@
       filterUserID = async () => {
         const users = await fetchData();
         let result = users.filter((user) => user.id == id);
+        console.log(result);
         let htmlString = "";
         const table = document.querySelector(".user-info");
 
