@@ -24,7 +24,7 @@ const row = document.querySelector("div.row");
 getCardsString = (products) => {
   let cardsString = "";
   if (products.length > 0) {
-    cardsString = products.reduce(
+    cardsString = products.reverse().reduce(
       (accumulator, currentProduct) =>
         accumulator +
         `<div class="col-md-4">
