@@ -1,22 +1,3 @@
-getProducts = async () => {
-  const url = "https://striveschool-api.herokuapp.com/api/product/";
-  const header =
-    "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZmFiYzU3MjRiY2RlMTAwMTc2MTZhODgiLCJpYXQiOjE2MDUwOTk0NzksImV4cCI6MTYwNjMwOTA3OX0.i0zGdN0uflyPVQUp85NtplJivQFLB8qmDUeGYmurw1Y";
-  try {
-    let response = await fetch(url, {
-      headers: {
-        Authorization: header,
-      },
-    });
-
-    let products = await response.json();
-    console.log(products);
-    return products;
-  } catch (error) {
-    alert(error);
-  }
-};
-
 window.onload = async () => {
   loadProducts();
 };
@@ -35,7 +16,6 @@ getCardsString = (products) => {
                     <div>
                     <div><strong>Name:</strong> ${currentProduct.name}</div>
                     <div><strong>Brand:</strong> ${currentProduct.brand}</div>
-                    <div>${currentProduct.description}</div>
                     <div><strong>Price:</strong> £ ${currentProduct.price}</div>
                     </div>
                     
@@ -44,20 +24,18 @@ getCardsString = (products) => {
                         class="d-flex justify-content-between align-items-center"
                     >
                         <div class="btn-group">
+                        <a href="details.html?id=${currentProduct._id}">
                         <button
                             type="button"
                             class="btn btn-sm btn-outline-secondary"
                         >
                             View
                         </button>
-                        <button
-                            type="button"
-                            class="btn btn-sm btn-outline-secondary"
-                        >
-                            Edit
-                        </button>
+                        </a>
                         </div>
-                        <small class="text-muted">9 mins</small>
+                        <small class="text-muted">${
+                          currentProduct.updatedAt.split("T")[0]
+                        }</small>
                     </div>
                     </div>
                 </div>

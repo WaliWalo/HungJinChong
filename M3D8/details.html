@@ -57,65 +57,16 @@
             }   
         -->
     <style>
-      main {
-        margin-top: 10%;
+      img {
+        width: 100%;
+        height: 400px;
+        object-fit: cover;
       }
-      .fa-sort:hover {
-        color: blue;
+      main {
+        margin-top: 5%;
       }
       footer i {
         font-size: 50px;
-      }
-      .fade-out {
-        animation: fadeOut ease 3s;
-        -webkit-animation: fadeOut ease 3s;
-        -moz-animation: fadeOut ease 3s;
-        -o-animation: fadeOut ease 3s;
-        -ms-animation: fadeOut ease 3s;
-      }
-      @keyframes fadeOut {
-        0% {
-          opacity: 1;
-        }
-        100% {
-          opacity: 0;
-        }
-      }
-
-      @-moz-keyframes fadeOut {
-        0% {
-          opacity: 1;
-        }
-        100% {
-          opacity: 0;
-        }
-      }
-
-      @-webkit-keyframes fadeOut {
-        0% {
-          opacity: 1;
-        }
-        100% {
-          opacity: 0;
-        }
-      }
-
-      @-o-keyframes fadeOut {
-        0% {
-          opacity: 1;
-        }
-        100% {
-          opacity: 0;
-        }
-      }
-
-      @-ms-keyframes fadeOut {
-        0% {
-          opacity: 1;
-        }
-        100% {
-          opacity: 0;
-        }
       }
     </style>
     <title>Hello, world!</title>
@@ -138,13 +89,13 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
           <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
-              <a class="nav-link" href="index.html">Home</a>
-            </li>
             <li class="nav-item active">
-              <a class="nav-link" href="backoffice.html"
-                >Backoffice <span class="sr-only">(current)</span></a
+              <a class="nav-link" href="index.html"
+                >Home <span class="sr-only">(current)</span></a
               >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="backoffice.html">Backoffice</a>
             </li>
           </ul>
 
@@ -166,118 +117,26 @@
     </header>
     <main role="main" class="flex-shrink-0">
       <div class="container">
-        <div class="row">
-          <div class="col-4">
-            <div class="list-group" id="list-tab" role="tablist">
-              <a
-                class="list-group-item list-group-item-action active"
-                id="list-addProduct-list"
-                data-toggle="list"
-                href="#list-addProduct"
-                role="tab"
-                aria-controls="addProduct"
-                >Add/Edit Product</a
-              >
-              <a
-                class="list-group-item list-group-item-action"
-                id="list-edit-list"
-                data-toggle="list"
-                href="#list-edit"
-                role="tab"
-                aria-controls="edit"
-                >Products</a
-              >
+        <h1 class="mt-5">Product Detail</h1>
+        <div class="card mb-3" style="max-width: 940px">
+          <div class="row no-gutters">
+            <div class="col-md-4">
+              <img src="" class="card-img" alt="..." />
             </div>
-          </div>
-          <div class="col-8">
-            <div class="tab-content" id="nav-tabContent">
-              <div
-                class="tab-pane fade show active"
-                id="list-addProduct"
-                role="tabpanel"
-                aria-labelledby="list-addProduct-list"
-              >
-                <form onsubmit="handleSubmit(event)">
-                  <div class="form-group">
-                    <label for="name">Product Name</label>
-                    <input
-                      type="text"
-                      class="form-control"
-                      id="name"
-                      placeholder="Product Name"
-                      required
-                    />
-                    <label for="brand">Product Brand</label>
-                    <input
-                      type="text"
-                      class="form-control"
-                      id="brand"
-                      placeholder="Product Brand"
-                      required
-                    />
-                    <label for="desc">Product Description</label>
-                    <textarea
-                      type="text"
-                      class="form-control"
-                      id="desc"
-                      placeholder="Product desc"
-                      required
-                    ></textarea>
-                    <label for="image">Product Image</label>
-                    <input type="file" class="form-control-file" id="image" />
-                    <label for="price">Product price</label>
-                    <input
-                      type="number"
-                      class="form-control"
-                      id="price"
-                      min="1"
-                      step="any"
-                      required
-                    />
-                  </div>
-                  <div class="form-group">
-                    <button
-                      class="btn btn-primary"
-                      type="submit"
-                      value="Add Product"
-                      id="submitBtn"
-                    >
-                      <span
-                        class="spinner-border spinner-border-sm d-none"
-                        role="status"
-                        aria-hidden="true"
-                        id="loadingSpinner"
-                      ></span>
-                      Add Product
-                    </button>
-                  </div>
-                </form>
-              </div>
-              <div
-                class="tab-pane fade"
-                id="list-edit"
-                role="tabpanel"
-                aria-labelledby="list-edit-list"
-              >
-                <h2>Edit Tab</h2>
-                <table class="table table-hover">
-                  <thead>
-                    <tr>
-                      <th scope="col">#</th>
-                      <th scope="col">
-                        Name <i class="fas fa-sort" onclick="sortName()"></i>
-                      </th>
-                      <th scope="col">
-                        Brand <i class="fas fa-sort" onclick="sortBrand()"></i>
-                      </th>
-                      <th scope="col">
-                        Price <i class="fas fa-sort" onclick="sortPrice()"></i>
-                      </th>
-                      <th scope="col"></th>
-                    </tr>
-                  </thead>
-                  <tbody></tbody>
-                </table>
+            <div class="col-md-8">
+              <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text" id="brand">
+                  This is a wider card with supporting text below as a natural
+                  lead-in to additional content. This content is a little bit
+                  longer.
+                </p>
+                <p class="card-text" id="desc">
+                  <small class="text-muted">Last updated 3 mins ago</small>
+                </p>
+                <p class="card-text" id="price">
+                  <small class="text-muted">Last updated 3 mins ago</small>
+                </p>
               </div>
             </div>
           </div>
@@ -321,11 +180,12 @@
         </div>
       </div>
     </footer>
+    >
     <!-- Optional JavaScript; choose one of the two! -->
 
     <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
     <script src="apiUrl.js"></script>
-    <script src="backoffice.js"></script>
+    <script src="details.js"></script>
     <script
       src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
       integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
