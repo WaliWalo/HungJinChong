@@ -8,8 +8,8 @@ fetchData = async () => {
   } catch (error) {}
 };
 
-window.onload = () => {
-  tableOnLoad();
+window.onload = async () => {
+  await tableOnLoad();
 };
 
 tableOnLoad = async () => {
@@ -82,7 +82,6 @@ filterEmail = async () => {
 
 const userSelection = () => {
   let selection = document.querySelector("select");
-  console.log(selection.value);
   switch (selection.value) {
     case "Name":
       filterName();
@@ -135,31 +134,36 @@ sortName = async () => {
   filteredTable(users);
 };
 
-// Initialize and add the map
-initMap = async (users) => {
+//Initialize and add the map
+initMap = async (query) => {
   // The location of Uluru
-  const uluru = { lat: -25.344, lng: 131.036 };
-  // The map, centered at Uluru
-  const map = new google.maps.Map(document.getElementById("map"), {
-    zoom: 1,
-    center: uluru,
-  });
-  console.log(await users);
-  users.forEach((user) => {
-    const pos = {
-      lat: parseFloat(user.address.geo.lat),
-      lng: parseFloat(user.address.geo.lng),
-    };
-    const marker = new google.maps.Marker({
-      position: pos,
-      map: map,
-      title: user.name,
+  try {
+    let response = await fetch(`https://jsonplaceholder.typicode.com/users`, {
+      method: "GET",
     });
-  });
-
-  // // The marker, positioned at Uluru
-  // const marker = new google.maps.Marker({
-  //   position: uluru,
-  //   map: map,
-  // });
+    if (response.ok) {
+      let users = await response.json();
+      const uluru = { lat: -25.344, lng: 131.036 };
+      // The map, centered at Uluru
+      const map = new google.maps.Map(document.getElementById("map"), {
+        zoom: 1,
+        center: uluru,
+      });
+      users = query;
+      //console.log(users.map((user) => user === query));
+      users.forEach((user) => {
+        const pos = {
+          lat: parseFloat(user.address.geo.lat),
+          lng: parseFloat(user.address.geo.lng),
+        };
+        const marker = new google.maps.Marker({
+          position: pos,
+          map: map,
+          title: user.name,
+        });
+      });
+    }
+  } catch (error) {
+    console.log(error);
+  }
 };
